@@ -1,0 +1,66 @@
+====================================================================
+ROADMAP DE EVOLUÇÃO TECNOLÓGICA & INTEGRAÇÃO FUTURA
+====================================================================
+
+Este projeto foi construído inicialmente em Vanilla HTML5, CSS3 Moderno
+e JavaScript ES6 Modular (mobile-first, super leve e veloz), permitindo
+entregar um MVP 100% funcional hoje mesmo para o profissional sem custo
+de servidores ou complexidade de build.
+
+A estrutura foi toda pensada para facilitar a transição futura para:
+- React + TypeScript + Vite
+- Tailwind CSS (usando a paleta de cores definida em paleta_identidade.txt)
+- Lucide React Icons
+- Supabase (Autenticação única para o mestre de obras + Postgres + Storage)
+
+--------------------------------------------------------------------
+1. MAPEAMENTO DE COMPONENTES ATUAIS PARA REACT
+--------------------------------------------------------------------
+Atualmente em Vanilla JS         ->  Futuro em React (tsx)
+• Header / MobileMenu            ->  src/components/Header.tsx
+• HeroSection                    ->  src/components/Hero.tsx
+• ServiceCard / ServiceGrid      ->  src/components/ServiceCard.tsx
+• BeforeAfterSlider              ->  src/components/BeforeAfterSlider.tsx
+• BudgetCalculator               ->  src/components/BudgetCalculator.tsx
+• TestimonialsGrid               ->  src/components/TestimonialCard.tsx
+• BookingSection                 ->  src/components/BookingForm.tsx
+• ContactSection                 ->  src/components/Contact.tsx
+• WhatsAppFloat                  ->  src/components/WhatsAppButton.tsx
+• AdminDashboard                 ->  src/pages/admin/Dashboard.tsx
+• AdminServices / Projects       ->  src/pages/admin/ServicesManager.tsx
+
+--------------------------------------------------------------------
+2. SERVIÇO DE DADOS & ABSTRAÇÃO SUPABASE
+--------------------------------------------------------------------
+O arquivo `assets/js/services/dataService.js` funciona como uma camada de 
+abstração (Repository Pattern). Ele expõe métodos como:
+- `getServices()`, `createService()`, `updateService()`, `deleteService()`
+- `getProjects()`, `createProject()`, `deleteProject()`
+- `getTestimonials()`, `createTestimonial()`, `deleteTestimonial()`
+- `getSettings()`, `updateSettings()`
+
+Hoje, ele lê e salva no `localStorage` do navegador com fallback para o 
+`mockData.js`. 
+
+Na migração para Supabase:
+Basta substituir a implementação interna das funções de `dataService.js` por:
+```typescript
+import { createClient } from '@supabase/supabase-js'
+
+export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+export async function getServices() {
+  const { data, error } = await supabase.from('services').select('*').order('name');
+  if (error) throw error;
+  return data;
+}
+```
+Todas as telas continuarão funcionando sem precisar reescrever a interface!
+
+--------------------------------------------------------------------
+3. STORAGE SUPABASE PARA AS FOTOS DE ANTES & DEPOIS
+--------------------------------------------------------------------
+- Bucket: `obras` (com política de leitura pública).
+- Upload via painel admin com redimensionamento automático de imagens (ex: max 1920x1080 WebP)
+  para carregamento veloz em 4G no smartphone do cliente.
+====================================================================

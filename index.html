@@ -1,0 +1,2164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DASA Centro Automotivo | Auto Peças e Serviços Mecânicos em Petrolina - PE</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="DASA Centro Automotivo - Peças e serviços mecânicos em Petrolina: troca de óleo, freios, revisão preventiva, alinhamento 3D, injeção eletrônica e suspensão. Simule seu orçamento e agende sua visita!">
+  <meta name="keywords" content="DASA centro automotivo, mecanica petrolina, oficina mecanica petrolina, troca de oleo petrolina, alinhamento 3d petrolina, auto pecas petrolina, revisao preventiva, agendar visita mecanica petrolina">
+  <meta name="author" content="DASA Centro Automotivo">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DASA Centro Automotivo - Auto Peças e Serviços em Petrolina">
+  <meta property="og:description" content="Manutenção automotiva de confiança com tecnologia de diagnóstico e orçamento rápido via WhatsApp. Simule o serviço e agende sua visita!">
+  <meta property="og:image" content="assets/img/logo-dasa.png">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Folhas de Estilo Modulares -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  
+  <style>
+    .hero-section {
+      background: radial-gradient(circle at top right, rgba(0, 86, 179, 0.08) 0%, rgba(248, 250, 252, 1) 70%);
+      padding: 3.5rem 0 4rem;
+    }
+    .highlight-text {
+      color: var(--color-vermelho);
+    }
+    
+    /* Grid e Cards de Serviços com Fotos */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.75rem;
+    }
+    .service-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+      box-shadow: 0 4px 14px rgba(16, 50, 92, 0.04);
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(16, 50, 92, 0.12);
+      border-color: #cbd5e1;
+    }
+    .service-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 195px;
+      overflow: hidden;
+      background: #e2e8f0;
+    }
+    .service-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover .service-img {
+      transform: scale(1.06);
+    }
+    .service-category-badge {
+      position: absolute;
+      top: 0.85rem;
+      right: 0.85rem;
+      background: rgba(16, 50, 92, 0.92);
+      color: #ffffff;
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(4px);
+    }
+    .service-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .service-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-azul-escuro);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .service-description {
+      font-size: 0.875rem;
+      color: var(--color-text-main);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .service-meta-strip {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .service-price-tag {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      padding-top: 0.85rem;
+      border-top: 1px dashed var(--color-border);
+      margin-bottom: 1.25rem;
+    }
+    .service-price-prefix {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .service-price-val {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--color-azul-escuro);
+    }
+    .service-price-unit {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Antes e Depois */
+    .ba-before {
+      -webkit-clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+      clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    }
+
+    /* Tabela de Preços & Prazos */
+    .pricing-table-container {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      box-shadow: 0 4px 16px rgba(16, 50, 92, 0.05);
+      margin-top: 2.5rem;
+    }
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      min-width: 650px;
+    }
+    .pricing-table th {
+      background: var(--color-azul-escuro);
+      color: #ffffff;
+      padding: 1rem 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .pricing-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 0.9rem;
+      color: var(--color-text-main);
+    }
+    .pricing-table tr:hover td {
+      background: #f8fafc;
+    }
+    .pricing-table .price-col {
+      font-weight: 800;
+      color: var(--color-azul-escuro);
+      font-size: 1rem;
+    }
+    .pricing-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: #e0f2fe;
+      color: var(--color-azul-medio);
+    }
+
+    /* Faixa de Montadoras */
+    .partners-strip {
+      background: #f8fafc;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .partners-title {
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+    }
+    .brands-pills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 1.25rem;
+      align-items: center;
+    }
+    .brand-pill {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.825rem;
+      font-weight: 700;
+      color: var(--color-azul-escuro);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .brand-pill span {
+      color: var(--color-vermelho);
+    }
+
+    /* Faixa de Garantia e Pagamento */
+    .payment-banner {
+      background: linear-gradient(135deg, var(--color-azul-escuro) 0%, #0d294a 100%);
+      color: #ffffff;
+      padding: 2rem 0;
+      margin: 3rem 0;
+      border-radius: var(--radius-lg);
+    }
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .payment-item-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+      color: #ffffff;
+    }
+    .payment-item-desc {
+      font-size: 0.825rem;
+      color: #cbd5e1;
+    }
+  
+    /* Garante visibilidade e carregamento imediato de todos os cards e imagens */
+    .reveal-on-scroll {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+    .service-img, .hero-main-img, .ba-img {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====================================================================
+       1. HEADER COM NAVEGAÇÃO COMPLETA (INCLUINDO ABA AGENDAR VISITA)
+       ==================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <!-- Marca / Logo da DASA -->
+      <a href="#inicio" class="brand-logo" aria-label="DASA Centro Automotivo - Início">
+        <img src="assets/img/logo-dasa.png" alt="DASA Centro Automotivo" class="brand-logo-img">
+        <div class="brand-text">
+          <span class="brand-name">DASA</span>
+          <span class="brand-tagline">Centro Automotivo</span>
+        </div>
+      </a>
+
+      <!-- Menu Principal de Navegação: COM ABA AGENDAR VISITA -->
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="#inicio" class="nav-link active">Início</a></li>
+          <li><a href="#servicos" class="nav-link">Serviços</a></li>
+          <li><a href="#obras" class="nav-link">Antes & Depois</a></li>
+          <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
+          <li><a href="#calculadora" class="nav-link">Simulador FIPE</a></li>
+          <li><a href="#depoimentos" class="nav-link">Avaliações</a></li>
+          <li><a href="#agendamento" class="nav-link">Agendar Visita</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+        <a href="#agendamento" class="nav-cta-btn">Agendar Visita</a>
+      </nav>
+
+      <!-- Ações do Header (Instagram + WhatsApp + Menu Mobile) -->
+      <div class="header-actions">
+        <!-- Botão Instagram Oficial -->
+        <a href="https://www.instagram.com/dasacentroautomotivo/" 
+           class="header-instagram-btn js-instagram-link" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           aria-label="Instagram da DASA Centro Automotivo">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <span class="d-none d-sm-inline">Instagram</span>
+        </a>
+
+        <!-- Botão WhatsApp Topo -->
+        <a href="https://api.whatsapp.com/send?phone=558738623648&text=Ol%C3%A1%2C%20DASA%20Centro%20Automotivo!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20carro." 
+           class="header-wa-btn js-whatsapp-link" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           aria-label="Falar pelo WhatsApp com a DASA">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 2C6.511 2 2.018 6.49 2.018 12.01c0 1.83.493 3.55 1.353 5.04L2 22l5.12-1.34c1.44.79 3.09 1.23 4.91 1.23 5.52 0 10.01-4.49 10.01-10.01 0-5.52-4.49-10.01-10.01-10.01zm0 18.28c-1.57 0-3.04-.42-4.32-1.16l-.31-.18-3.21.84.86-3.13-.2-.32a8.23 8.23 0 0 1-1.27-4.48c0-4.57 3.72-8.28 8.28-8.28 4.56 0 8.28 3.71 8.28 8.28 0 4.56-3.72 8.28-8.28 8.28z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <!-- Botão CTA Desktop -->
+        <a href="#agendamento" class="header-cta-desktop">Agendar Visita</a>
+
+        <!-- Botão Hamburger Mobile -->
+        <button type="button" class="mobile-toggle" id="mobile-menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Backdrop Mobile -->
+  <div class="nav-backdrop" id="nav-backdrop"></div>
+
+  <main>
+    <!-- ====================================================================
+         2. SEÇÃO HERO
+         ==================================================================== -->
+    <section class="hero-section" id="inicio">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-tag" style="background: rgba(16, 50, 92, 0.08); color: var(--color-azul-escuro);">
+              <span class="badge-dot" style="color: var(--color-vermelho);">●</span>
+              <span>DASA Centro Automotivo • Petrolina - PE</span>
+            </div>
+
+            <h1 class="hero-title" style="color: var(--color-azul-escuro);">
+              Cuidado de alta precisão e <span class="highlight-text">confiança</span> para o seu veículo
+            </h1>
+
+            <p class="hero-subtitle">
+              Manutenção preventiva e corretiva multimarcas com tecnologia de diagnóstico computadorizado, peças originais com garantia e atendimento transparente no Vale do São Francisco.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="#agendamento" class="btn btn-lg" style="background: var(--color-vermelho); color: #fff; box-shadow: 0 4px 14px rgba(204, 27, 39, 0.35);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Agendar uma Visita
+              </a>
+              <a href="#calculadora" class="btn btn-outline btn-lg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 10.7 2 10.8 2 11v5c0 .6.4 1 1 1h2"></path>
+                  <circle cx="7" cy="17" r="2"></circle>
+                  <circle cx="17" cy="17" r="2"></circle>
+                </svg>
+                Simular por Veículo (FIPE)
+              </a>
+            </div>
+          </div>
+
+          <!-- Imagem de Destaque da Mecânica -->
+          <div class="hero-visual reveal-on-scroll">
+            <div class="hero-image-card">
+              <span class="hero-img-badge" style="background: var(--color-azul-escuro); color: #fff;">Centro Automotivo em Petrolina</span>
+              <img 
+                src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" 
+                alt="DASA Centro Automotivo - Oficina Mecânica e Auto Peças" 
+                class="hero-main-img" 
+                loading="eager"
+              >
+              <div class="hero-notice-pill" style="border-left: 3px solid var(--color-vermelho);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+                <span>Fotos ilustrativas de exemplo — a equipe da DASA poderá incluir fotos reais dos seus serviços e da oficina pelo Painel Administrativo.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         BARRA CENTRAL DE DIFERENCIAIS E CONFIANÇA (FULL-WIDTH)
+         ==================================================================== -->
+    <section class="trust-strip-section">
+      <div class="container">
+        <div class="trust-strip-grid">
+          <!-- Item 1: Peças com Garantia -->
+          <div class="trust-strip-card">
+            <div class="trust-strip-icon-box icon-blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
+            <div class="trust-strip-info">
+              <h4 class="trust-strip-title">Peças com Garantia</h4>
+              <p class="trust-strip-desc">Procedência de fábrica e garantia comprovada</p>
+            </div>
+          </div>
+
+          <!-- Item 2: Diagnóstico 3D & Scanner -->
+          <div class="trust-strip-card">
+            <div class="trust-strip-icon-box icon-red">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                <rect x="9" y="9" width="6" height="6"></rect>
+                <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"></path>
+              </svg>
+            </div>
+            <div class="trust-strip-info">
+              <h4 class="trust-strip-title">Diagnóstico por Scanner</h4>
+              <p class="trust-strip-desc">Leitura precisa de módulos, injeção e ABS</p>
+            </div>
+          </div>
+
+          <!-- Item 3: Entrega no Prazo -->
+          <div class="trust-strip-card">
+            <div class="trust-strip-icon-box icon-medium-blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="trust-strip-info">
+              <h4 class="trust-strip-title">Entrega no Prazo</h4>
+              <p class="trust-strip-desc">Cronograma transparente para sua rotina</p>
+            </div>
+          </div>
+
+          <!-- Item 4: Fácil Acesso Petrolina -->
+          <div class="trust-strip-card">
+            <div class="trust-strip-icon-box icon-green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="trust-strip-info">
+              <h4 class="trust-strip-title">Fácil Acesso Petrolina</h4>
+              <p class="trust-strip-desc">Rua Miguel Santos - Caminho do Sol</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         3. SEÇÃO SERVIÇOS & PREÇOS DE REFERÊNCIA (10 SERVIÇOS COM FOTOS)
+         ==================================================================== -->
+    <section class="section section-alt" id="servicos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" style="background: rgba(204, 27, 39, 0.1); color: var(--color-vermelho);">Serviços e Manutenção</span>
+          <h2 class="section-title" style="color: var(--color-azul-escuro);">Tabela de Serviços de Referência</h2>
+          <p class="section-subtitle">
+            Preços transparentes com fotos reais de manutenção para facilitar seu planejamento. Todos os serviços incluem inspeção técnica rigorosa.
+          </p>
+        </div>
+
+        <!-- Grid de Serviços com Fotos de Exemplo e Preços Reais -->
+        <div class="services-grid" id="services-grid">
+          
+          <!-- Serviço 1: Troca de Óleo e Filtros -->
+          <article class="service-card reveal-on-scroll" data-service-id="srv-1">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=600&q=80" alt="Troca de Óleo e Filtros" class="service-img" loading="lazy">
+              <span class="service-category-badge">Lubrificação</span>
+            </div>
+            <div class="service-body">
+              <h3 class="service-name">Troca de Óleo e Filtros</h3>
+              <p class="service-description">
+                Substituição com óleos sintéticos recomendados pelo fabricante (5W30, 0W20, 10W40) + filtro de óleo e vedação para máxima proteção e vida útil do motor.
+              </p>
+              <div class="service-meta-strip">
+                <span>⏱️ Tempo: 40 min</span>
+                <span>✓ Filtro incluso</span>
+              </div>
+              <div class="service-price-tag">
+                <span class="service-price-prefix">A partir de</span>
+                <span class="service-price-val">R$ 180,00</span>
+                <span class="service-price-unit">/serviço</span>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm js-simulate-service-btn" data-service-id="srv-1" data-service-name="Troca de Óleo e Filtros" data-price="180">
+                Simular no Orçamento →
+              </button>
+            </div>
+          </article>
+
+          <!-- Serviço 2: Revisão Preventiva Check-up 30 Itens -->
+          <article class="service-card reveal-on-scroll" data-service-id="srv-2">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80" alt="Revisão Preventiva Geral" class="service-img" loading="lazy">
+              <span class="service-category-badge">Check-up Geral</span>
+            </div>
+            <div class="service-body">
+              <h3 class="service-name">Revisão Preventiva (30 Itens)</h3>
+              <p class="service-description">
+                Inspeção detalhada de segurança: fluidos, correias dentadas, velas, bateria, iluminação, pneus, suspensão e freios com relatório de saúde do veículo.
+              </p>
+              <div class="service-meta-strip">
+                <span>⏱️ Tempo: 1h30</span>
+                <span>✓ Relatório impresso</span>
+              </div>
+              <div class="service-price-tag">
+                <span class="service-price-prefix">A partir de</span>
+                <span class="service-price-val">R$ 220,00</span>
+                <span class="service-price-unit">/serviço</span>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm js-simulate-service-btn" data-service-id="srv-2" data-service-name="Revisão Preventiva (30 Itens)" data-price="220">
+                Simular no Orçamento →
+              </button>
+            </div>
+          </article>
+
+          <!-- Serviço 3: Manutenção de Freios e Pastilhas -->
+          <article class="service-card reveal-on-scroll" data-service-id="srv-3">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1600793575654-910699b5e4d4?auto=format&fit=crop&w=600&q=80" alt="Manutenção de Freios" class="service-img" loading="lazy">
+              <span class="service-category-badge">Segurança</span>
+            </div>
+            <div class="service-body">
+              <h3 class="service-name">Manutenção de Freios e Pastilhas</h3>
+              <p class="service-description">
+                Substituição de pastilhas de cerâmica, aferição de espessura de discos ventilados, sangria com máquina e teste do ponto de ebulição do fluido DOT 4/5.1.
+              </p>
+              <div class="service-meta-strip">
+                <span>⏱️ Tempo: 1h</span>
+                <span>✓ Sangria eletrônica</span>
+              </div>
+              <div class="service-price-tag">
+                <span class="service-price-prefix">A partir de</span>
+                <span class="service-price-val">R$ 160,00</span>
+                <span class="service-price-unit">/par dianteiro</span>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm js-simulate-service-btn" data-service-id="srv-3" data-service-name="Manutenção de Freios e Pastilhas" data-price="160">
+                Simular no Orçamento →
+              </button>
+            </div>
+          </article>
+
+          <!-- Serviço 4: Alinhamento Computadorizado 3D -->
+          <article class="service-card reveal-on-scroll" data-service-id="srv-4">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=600&q=80" alt="Alinhamento 3D e Balanceamento" class="service-img" loading="lazy">
+              <span class="service-category-badge">Geometria 3D</span>
+            </div>
+            <div class="service-body">
+              <h3 class="service-name">Alinhamento 3D e Balanceamento</h3>
+              <p class="service-description">
+                Geometria computadorizada a laser com parâmetros oficiais de fábrica. Elimina vibrações no volante e evita o desgaste irregular prematuro dos pneus.
+              </p>
+              <div class="service-meta-strip">
+                <span>⏱️ Tempo: 50 min</span>
+                <span>✓ Laser de alta precisão</span>
+              </div>
+              <div class="service-price-tag">
+                <span class="service-price-prefix">Valor fechado</span>
+                <span class="service-price-val">R$ 120,00</span>
+                <span class="service-price-unit">/4 rodas</span>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm js-simulate-service-btn" data-service-id="srv-4" data-service-name="Alinhamento 3D e Balanceamento" data-price="120">
+                Simular no Orçamento →
+              </button>
+            </div>
+          </article>
+
+          <!-- Serviço 5: Diagnóstico Eletrônico por Scanner -->
+          <article class="service-card reveal-on-scroll" data-service-id="srv-5">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80" alt="Scanner e Injeção Eletrônica" class="service-img" loading="lazy">
+              <span class="service-category-badge">Injeção & Módulos</span>
+            </div>
+            <div class="service-body">
+              <h3 class="service-name">Diagnóstico por Scanner (Injeção)</h3>
+              <p class="service-description">
+                Leitura completa de falhas na injeção, sensores de motor, câmbio automático, ABS e Airbag com reset das luzes de anomalia acesas no painel.
+              </p>
+              <div class="service-meta-strip">
+                <span>⏱️ Tempo: 45 min</span>
+                <span>✓ Reset de avarias</span>
+              </div>
+              <div class="service-price-tag">
+                <span class="service-price-prefix">Diagnóstico</span>
+                <span class="service-price-val">R$ 130,00</span>
+                <span class="service-price-unit">/veículo</span>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm js-simulate-service-btn" data-service-id="srv-5" data-service-name="Diagnóstico por Scanner (Injeção)" data-price="130">
+                Simular no Orçamento →
+              </button>
+            </div>
+          </article>
+
+          <!-- Serviço 6: Higienização e Carga de Ar-Condicionado -->
+          <article class="service-card reveal-on-scroll" data-service-id="srv-6">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80" alt="Ar-Condicionado Automotivo" class="service-img" loading="lazy">
+              <span class="service-category-badge">Climatização</span>
+            </div>
+            <div class="service-body">
+              <h3 class="service-name">Higienização e Carga de Ar</h3>
+              <p class="service-description">
+                Oxi-sanitização por ozônio bactericida anti-ácaro, troca do filtro de cabine e recarga de gás refrigerante R134a para resfriamento rápido no calor de Petrolina.
+              </p>
+              <div class="service-meta-strip">
+                <span>⏱️ Tempo: 1h</span>
+                <span>✓ Ozônio bactericida</span>
+              </div>
+              <div class="service-price-tag">
+                <span class="service-price-prefix">A partir de</span>
+                <span class="service-price-val">R$ 150,00</span>
+                <span class="service-price-unit">/serviço</span>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm js-simulate-service-btn" data-service-id="srv-6" data-service-name="Higienização e Carga de Ar" data-price="150">
+                Simular no Orçamento →
+              </button>
+            </div>
+          </article>
+
+          <!-- Serviço 7: Suspensão e Amortecedores -->
+          <article class="service-card reveal-on-scroll" data-service-id="srv-7">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=600&q=80" alt="Suspensão e Amortecedores" class="service-img" loading="lazy">
+              <span class="service-category-badge">Conforto & Direção</span>
+            </div>
+            <div class="service-body">
+              <h3 class="service-name">Suspensão, Amortecedores e Buchas</h3>
+              <p class="service-description">
+                Substituição de amortecedores, molas, bieletas, pivôs e buchas. Eliminação de rangidos e barulhos secos em lombadas e asfalto irregular.
+              </p>
+              <div class="service-meta-strip">
+                <span>⏱️ Tempo: 2h</span>
+                <span>✓ Elimina ruídos</span>
+              </div>
+              <div class="service-price-tag">
+                <span class="service-price-prefix">A partir de</span>
+                <span class="service-price-val">R$ 200,00</span>
+                <span class="service-price-unit">/eixo</span>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm js-simulate-service-btn" data-service-id="srv-7" data-service-name="Suspensão, Amortecedores e Buchas" data-price="200">
+                Simular no Orçamento →
+              </button>
+            </div>
+          </article>
+
+          <!-- Serviço 8: Sistema de Arrefecimento e Radiador -->
+          <article class="service-card reveal-on-scroll" data-service-id="srv-8">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Arrefecimento e Radiador" class="service-img" loading="lazy">
+              <span class="service-category-badge">Temperatura</span>
+            </div>
+            <div class="service-body">
+              <h3 class="service-name">Sistema de Arrefecimento e Radiador</h3>
+              <p class="service-description">
+                Limpeza de reservatório, teste de estanqueidade de mangueiras sob pressão e aplicação de aditivo orgânico com água desmineralizada contra superaquecimento.
+              </p>
+              <div class="service-meta-strip">
+                <span>⏱️ Tempo: 1h</span>
+                <span>✓ Anti-fervura</span>
+              </div>
+              <div class="service-price-tag">
+                <span class="service-price-prefix">A partir de</span>
+                <span class="service-price-val">R$ 140,00</span>
+                <span class="service-price-unit">/serviço</span>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm js-simulate-service-btn" data-service-id="srv-8" data-service-name="Sistema de Arrefecimento e Radiador" data-price="140">
+                Simular no Orçamento →
+              </button>
+            </div>
+          </article>
+
+          <!-- Serviço 9: Teste e Troca de Bateria / Alternador -->
+          <article class="service-card reveal-on-scroll" data-service-id="srv-9">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=600&q=80" alt="Bateria e Elétrica" class="service-img" loading="lazy">
+              <span class="service-category-badge">Elétrica Automotiva</span>
+            </div>
+            <div class="service-body">
+              <h3 class="service-name">Teste e Troca de Bateria / Alternador</h3>
+              <p class="service-description">
+                Aferição de corrente de partida (CCA) e carga do alternador com analisador digital, limpeza de bornes e instalação de baterias novas seladas com garantia.
+              </p>
+              <div class="service-meta-strip">
+                <span>⏱️ Tempo: 30 min</span>
+                <span>✓ Teste digital gratuito</span>
+              </div>
+              <div class="service-price-tag">
+                <span class="service-price-prefix">Mão de obra</span>
+                <span class="service-price-val">R$ 90,00</span>
+                <span class="service-price-unit">/instalação</span>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm js-simulate-service-btn" data-service-id="srv-9" data-service-name="Teste e Troca de Bateria / Alternador" data-price="90">
+                Simular no Orçamento →
+              </button>
+            </div>
+          </article>
+
+          <!-- Serviço 10: Kit Correia Dentada e Tensores -->
+          <article class="service-card reveal-on-scroll" data-service-id="srv-10">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=600&q=80" alt="Correia Dentada e Motor" class="service-img" loading="lazy">
+              <span class="service-category-badge">Motor & Sincronismo</span>
+            </div>
+            <div class="service-body">
+              <h3 class="service-name">Troca de Correia Dentada e Tensor</h3>
+              <p class="service-description">
+                Substituição preventiva da correia sincronizadora e polias tensoras dentro do prazo recomendado pelo manual para proteger as válvulas do motor.
+              </p>
+              <div class="service-meta-strip">
+                <span>⏱️ Tempo: 2h30</span>
+                <span>✓ Ponto exato de comando</span>
+              </div>
+              <div class="service-price-tag">
+                <span class="service-price-prefix">A partir de</span>
+                <span class="service-price-val">R$ 280,00</span>
+                <span class="service-price-unit">/serviço</span>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm js-simulate-service-btn" data-service-id="srv-10" data-service-name="Troca de Correia Dentada e Tensor" data-price="280">
+                Simular no Orçamento →
+              </button>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- TABELA RÁPIDA DE PREÇOS E PRAZOS -->
+        <div class="pricing-table-container reveal-on-scroll">
+          <table class="pricing-table">
+            <thead>
+              <tr>
+                <th>Serviço de Manutenção</th>
+                <th>Insumos & Peças</th>
+                <th>Tempo Médio</th>
+                <th>Garantia</th>
+                <th>Preço de Referência</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Troca de Óleo e Filtros</strong></td>
+                <td>Óleo sintético 5W30/0W20 + Filtro Mann/Fram</td>
+                <td>30 a 45 min</td>
+                <td><span class="pricing-badge">Procedência</span></td>
+                <td class="price-col">R$ 180,00</td>
+              </tr>
+              <tr>
+                <td><strong>Revisão Preventiva (30 Itens)</strong></td>
+                <td>Checklist completo impresso + Scanner</td>
+                <td>1h a 1h30</td>
+                <td><span class="pricing-badge">3 Meses</span></td>
+                <td class="price-col">R$ 220,00</td>
+              </tr>
+              <tr>
+                <td><strong>Freios Dianteiros (Pastilhas)</strong></td>
+                <td>Pastilhas Cerâmicas Bosch/Fras-le</td>
+                <td>45 a 60 min</td>
+                <td><span class="pricing-badge">6 Meses</span></td>
+                <td class="price-col">R$ 160,00</td>
+              </tr>
+              <tr>
+                <td><strong>Alinhamento 3D + Balanceamento</strong></td>
+                <td>Laser computadorizado de alta precisão</td>
+                <td>40 a 50 min</td>
+                <td><span class="pricing-badge">30 Dias</span></td>
+                <td class="price-col">R$ 120,00</td>
+              </tr>
+              <tr>
+                <td><strong>Diagnóstico de Injeção por Scanner</strong></td>
+                <td>Varredura de módulos e reset de falhas</td>
+                <td>30 a 45 min</td>
+                <td><span class="pricing-badge">Laudo Técnico</span></td>
+                <td class="price-col">R$ 130,00</td>
+              </tr>
+              <tr>
+                <td><strong>Higienização e Carga de Gás do Ar</strong></td>
+                <td>Ozônio bactericida + Gás R134a + Filtro</td>
+                <td>45 a 60 min</td>
+                <td><span class="pricing-badge">Garantia DASA</span></td>
+                <td class="price-col">R$ 150,00</td>
+              </tr>
+              <tr>
+                <td><strong>Suspensão e Amortecedores</strong></td>
+                <td>Kits Cofap/Monroe com batentes</td>
+                <td>1h30 a 2h</td>
+                <td><span class="pricing-badge">12 Meses</span></td>
+                <td class="price-col">R$ 200,00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- FAIXA DE PAGAMENTO E GARANTIA -->
+        <div class="payment-banner reveal-on-scroll">
+          <div class="container">
+            <div class="payment-grid">
+              <div>
+                <div class="payment-item-title">💳 Até 12x no Cartão</div>
+                <div class="payment-item-desc">Parcelamento facilitado para revisão e peças</div>
+              </div>
+              <div>
+                <div class="payment-item-title">⚡ Desconto no PIX</div>
+                <div class="payment-item-desc">Condições especiais para pagamentos à vista</div>
+              </div>
+              <div>
+                <div class="payment-item-title">🛡️ Peças com Garantia</div>
+                <div class="payment-item-desc">Garantia de fábrica e procedência atestada</div>
+              </div>
+              <div>
+                <div class="payment-item-title">🔍 Transparência Total</div>
+                <div class="payment-item-desc">Você aprova o orçamento antes de qualquer troca</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         FAIXA DE MONTADORAS & PEÇAS PARCEIRAS COM GARANTIA
+         ==================================================================== -->
+    <section class="partners-strip">
+      <div class="container">
+        <div class="partners-title">Marcas Atendidas & Peças com Garantia de Procedência</div>
+        <div class="brands-pills-wrap">
+          <div class="brand-pill"><span>●</span> Chevrolet</div>
+          <div class="brand-pill"><span>●</span> Fiat</div>
+          <div class="brand-pill"><span>●</span> Volkswagen</div>
+          <div class="brand-pill"><span>●</span> Toyota</div>
+          <div class="brand-pill"><span>●</span> Hyundai</div>
+          <div class="brand-pill"><span>●</span> Honda</div>
+          <div class="brand-pill"><span>●</span> Jeep</div>
+          <div class="brand-pill"><span>●</span> Renault</div>
+          <div class="brand-pill"><span>●</span> Ford</div>
+          <div class="brand-pill"><span>●</span> Nissan</div>
+          <div class="brand-pill"><span>●</span> Bosch</div>
+          <div class="brand-pill"><span>●</span> Motul</div>
+          <div class="brand-pill"><span>●</span> Fremax</div>
+          <div class="brand-pill"><span>●</span> Cofap</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         4. SEÇÃO ANTES & DEPOIS (OBRAS REALIZADAS)
+         ==================================================================== -->
+    <section class="section section-alt" id="obras">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" style="background: rgba(204, 27, 39, 0.1); color: var(--color-vermelho);">Resultados Comprovados</span>
+          <h2 class="section-title" style="color: var(--color-azul-escuro);">Serviços Realizados (Antes & Depois)</h2>
+          <p class="section-subtitle">
+            Arraste a linha divisória com o mouse ou toque no celular para conferir a transformação antes e depois da nossa intervenção técnica.
+          </p>
+        </div>
+
+        <!-- Filtros de Categorias -->
+        <div class="gallery-filters" role="tablist" aria-label="Filtro de serviços">
+          <button type="button" class="filter-btn active js-gallery-filter" data-category="Todos">Todos os Serviços</button>
+          <button type="button" class="filter-btn js-gallery-filter" data-category="Estética & Faróis">Estética & Faróis</button>
+          <button type="button" class="filter-btn js-gallery-filter" data-category="Motor & Injeção">Motor & Injeção</button>
+          <button type="button" class="filter-btn js-gallery-filter" data-category="Freios">Freios</button>
+          <button type="button" class="filter-btn js-gallery-filter" data-category="Suspensão">Suspensão</button>
+        </div>
+
+        <!-- Grid de Antes & Depois Pré-populado e Interativo -->
+        <div class="projects-grid" id="projects-grid">
+          
+          <!-- Projeto 1: Restauração de Faróis -->
+          <article class="project-card reveal-on-scroll" data-category="Estética & Faróis">
+            <div class="project-comparison-wrapper">
+              <div class="before-after-container" data-id="proj-1">
+                <div class="ba-image-wrapper ba-before">
+                  <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80" alt="Farol Opaco - Antes" loading="lazy" class="ba-img">
+                  <span class="ba-badge ba-badge-before">Antes</span>
+                </div>
+                <div class="ba-image-wrapper ba-after">
+                  <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80" alt="Farol Restaurado - Depois" loading="lazy" class="ba-img">
+                  <span class="ba-badge ba-badge-after">Depois</span>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-slider" aria-label="Comparar antes e depois">
+                <div class="ba-handle" style="left: 50%;">
+                  <span class="ba-handle-arrows">⇄</span>
+                </div>
+              </div>
+              <div class="mobile-ba-toggle">
+                <button type="button" class="btn-toggle-view" data-view="after">Ver: <strong>Depois (Concluído)</strong> ⇄</button>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-header">
+                <span class="badge" style="background: rgba(204, 27, 39, 0.1); color: var(--color-vermelho); font-weight: 700;">Estética & Faróis</span>
+                <span class="project-date">Serviço Concluído</span>
+              </div>
+              <h3 class="project-title">Restauração e Vitrificação de Faróis Opacos</h3>
+              <p class="project-description">
+                Lixamento progressivo em 4 etapas e vitrificação cerâmica com proteção UV, recuperando 100% da transparência da lente e o foco da iluminação noturna na estrada.
+              </p>
+              <ul class="project-tags">
+                <li><span class="tag-bullet">✓</span> Proteção UV Cerâmica</li>
+                <li><span class="tag-bullet">✓</span> Recuperação de foco</li>
+                <li><span class="tag-bullet">✓</span> Lente 100% cristalina</li>
+              </ul>
+              <div class="project-footer">
+                <a href="#agendamento" class="btn btn-outline btn-sm">Agendar Este Serviço</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 2: Limpeza Técnica de Motor a Vapor -->
+          <article class="project-card reveal-on-scroll" data-category="Motor & Injeção">
+            <div class="project-comparison-wrapper">
+              <div class="before-after-container" data-id="proj-2">
+                <div class="ba-image-wrapper ba-before">
+                  <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80" alt="Motor com Sujeira - Antes" loading="lazy" class="ba-img">
+                  <span class="ba-badge ba-badge-before">Antes</span>
+                </div>
+                <div class="ba-image-wrapper ba-after">
+                  <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=800&q=80" alt="Motor Limpo e Detalhado - Depois" loading="lazy" class="ba-img">
+                  <span class="ba-badge ba-badge-after">Depois</span>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-slider" aria-label="Comparar antes e depois">
+                <div class="ba-handle" style="left: 50%;">
+                  <span class="ba-handle-arrows">⇄</span>
+                </div>
+              </div>
+              <div class="mobile-ba-toggle">
+                <button type="button" class="btn-toggle-view" data-view="after">Ver: <strong>Depois (Concluído)</strong> ⇄</button>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-header">
+                <span class="badge" style="background: rgba(16, 50, 92, 0.1); color: var(--color-azul-escuro); font-weight: 700;">Motor & Injeção</span>
+                <span class="project-date">Serviço Concluído</span>
+              </div>
+              <h3 class="project-title">Limpeza Técnica a Vapor e Detalhamento de Motor</h3>
+              <p class="project-description">
+                Descontaminação profunda sem agredir chicotes elétricos ou bobinas, higienização a vapor seco e proteção térmica de mangueiras com verniz protetor contra ressecamento.
+              </p>
+              <ul class="project-tags">
+                <li><span class="tag-bullet">✓</span> Vapor ecológico a seco</li>
+                <li><span class="tag-bullet">✓</span> Chicotes protegidos</li>
+                <li><span class="tag-bullet">✓</span> Verniz protetor térmico</li>
+              </ul>
+              <div class="project-footer">
+                <a href="#agendamento" class="btn btn-outline btn-sm">Agendar Este Serviço</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 3: Substituição de Freios e Discos Ventilados -->
+          <article class="project-card reveal-on-scroll" data-category="Freios">
+            <div class="project-comparison-wrapper">
+              <div class="before-after-container" data-id="proj-3">
+                <div class="ba-image-wrapper ba-before">
+                  <img src="https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=800&q=80" alt="Freio Gasto - Antes" loading="lazy" class="ba-img">
+                  <span class="ba-badge ba-badge-before">Antes</span>
+                </div>
+                <div class="ba-image-wrapper ba-after">
+                  <img src="https://images.unsplash.com/photo-1600793575654-910699b5e4d4?auto=format&fit=crop&w=800&q=80" alt="Freio Novo - Depois" loading="lazy" class="ba-img">
+                  <span class="ba-badge ba-badge-after">Depois</span>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-slider" aria-label="Comparar antes e depois">
+                <div class="ba-handle" style="left: 50%;">
+                  <span class="ba-handle-arrows">⇄</span>
+                </div>
+              </div>
+              <div class="mobile-ba-toggle">
+                <button type="button" class="btn-toggle-view" data-view="after">Ver: <strong>Depois (Concluído)</strong> ⇄</button>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-header">
+                <span class="badge" style="background: rgba(22, 163, 74, 0.1); color: #16a34a; font-weight: 700;">Freios</span>
+                <span class="project-date">Serviço Concluído</span>
+              </div>
+              <h3 class="project-title">Troca de Discos Ventilados e Pastilhas Cerâmica</h3>
+              <p class="project-description">
+                Substituição completa do conjunto com discos Fremax de alta dissipação e pastilhas cerâmicas Bosch, eliminando ruídos, chiados e trepidação no pedal.
+              </p>
+              <ul class="project-tags">
+                <li><span class="tag-bullet">✓</span> Pastilhas de Cerâmica</li>
+                <li><span class="tag-bullet">✓</span> Fluido DOT 4 novo</li>
+                <li><span class="tag-bullet">✓</span> Zero vibração no pedal</li>
+              </ul>
+              <div class="project-footer">
+                <a href="#agendamento" class="btn btn-outline btn-sm">Agendar Este Serviço</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 4: Suspensão e Geometria 3D -->
+          <article class="project-card reveal-on-scroll" data-category="Suspensão">
+            <div class="project-comparison-wrapper">
+              <div class="before-after-container" data-id="proj-4">
+                <div class="ba-image-wrapper ba-before">
+                  <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" alt="Suspensão com Folga - Antes" loading="lazy" class="ba-img">
+                  <span class="ba-badge ba-badge-before">Antes</span>
+                </div>
+                <div class="ba-image-wrapper ba-after">
+                  <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80" alt="Suspensão e Alinhamento Novo - Depois" loading="lazy" class="ba-img">
+                  <span class="ba-badge ba-badge-after">Depois</span>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-slider" aria-label="Comparar antes e depois">
+                <div class="ba-handle" style="left: 50%;">
+                  <span class="ba-handle-arrows">⇄</span>
+                </div>
+              </div>
+              <div class="mobile-ba-toggle">
+                <button type="button" class="btn-toggle-view" data-view="after">Ver: <strong>Depois (Concluído)</strong> ⇄</button>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-header">
+                <span class="badge" style="background: rgba(0, 86, 179, 0.1); color: var(--color-azul-medio); font-weight: 700;">Suspensão</span>
+                <span class="project-date">Serviço Concluído</span>
+              </div>
+              <h3 class="project-title">Alinhamento 3D e Revisão Completa de Suspensão</h3>
+              <p class="project-description">
+                Troca preventiva de amortecedores e batentes com geometria computadorizada 3D a laser, garantindo estabilidade e condução macia na rodovia sem puxar o volante.
+              </p>
+              <ul class="project-tags">
+                <li><span class="tag-bullet">✓</span> Geometria laser 3D</li>
+                <li><span class="tag-bullet">✓</span> Amortecedores novos</li>
+                <li><span class="tag-bullet">✓</span> Estabilidade total</li>
+              </ul>
+              <div class="project-footer">
+                <a href="#agendamento" class="btn btn-outline btn-sm">Agendar Este Serviço</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         5. SEÇÃO DIFERENCIAIS
+         ==================================================================== -->
+    <section class="section" id="diferenciais">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" style="background: rgba(16, 50, 92, 0.1); color: var(--color-azul-escuro);">Por que escolher a DASA</span>
+          <h2 class="section-title" style="color: var(--color-azul-escuro);">Diferenciais que cuidam da sua segurança</h2>
+          <p class="section-subtitle">
+            Transparência absoluta: só trocamos o que realmente precisa e mostramos a peça antiga substituída.
+          </p>
+        </div>
+
+        <div class="differentials-grid">
+          <div class="differential-card reveal-on-scroll">
+            <div class="diff-icon" style="background: rgba(16, 50, 92, 0.1); color: var(--color-azul-escuro);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+            </div>
+            <h3 class="diff-title">Scanner Eletrônico Avançado</h3>
+            <p class="diff-desc">Diagnóstico de injeção, câmbio, ABS e sensores com relatórios precisos direto no painel.</p>
+          </div>
+
+          <div class="differential-card reveal-on-scroll">
+            <div class="diff-icon" style="background: rgba(204, 27, 39, 0.1); color: var(--color-vermelho);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="22" y1="12" x2="18" y2="12"></line><line x1="6" y1="12" x2="2" y2="12"></line><line x1="12" y1="6" x2="12" y2="2"></line><line x1="12" y1="22" x2="12" y2="18"></line></svg>
+            </div>
+            <h3 class="diff-title">Alinhamento 3D Computadorizado</h3>
+            <p class="diff-desc">Geometria precisa a laser com tolerâncias de fábrica de montadoras nacionais e importadas.</p>
+          </div>
+
+          <div class="differential-card reveal-on-scroll">
+            <div class="diff-icon" style="background: rgba(0, 86, 179, 0.1); color: var(--color-azul-medio);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </div>
+            <h3 class="diff-title">Auto Peças Integrada</h3>
+            <p class="diff-desc">Agilidade sem ter que esperar dias para a peça chegar: temos estoque de reposição rápida no local.</p>
+          </div>
+
+          <div class="differential-card reveal-on-scroll">
+            <div class="diff-icon" style="background: rgba(22, 163, 74, 0.1); color: var(--color-whatsapp);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </div>
+            <h3 class="diff-title">Transparência e Honestidade</h3>
+            <p class="diff-desc">Sem empurrar trocas desnecessárias. Você recebe o orçamento prévio e aprova cada item.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         6. CALCULADORA DE ORÇAMENTO COM SELEÇÃO FIPE DE VEÍCULOS
+         ==================================================================== -->
+    <section class="section section-alt" id="calculadora">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" style="background: rgba(204, 27, 39, 0.1); color: var(--color-vermelho);">Simulador Inteligente FIPE</span>
+          <h2 class="section-title" style="color: var(--color-azul-escuro);">Simulador de Orçamento por Veículo</h2>
+          <p class="section-subtitle">
+            Selecione o seu carro (Chevrolet, Fiat, VW, Toyota, Jeep, Hyundai e mais), escolha os serviços e envie com 1 clique para o WhatsApp da DASA.
+          </p>
+        </div>
+
+        <!-- Card da Calculadora -->
+        <div id="calculator-container">
+          <div class="calculator-card" style="box-shadow: 0 10px 30px rgba(16, 50, 92, 0.08); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; background: #fff;">
+            
+            <div class="calculator-header" style="background: linear-gradient(135deg, var(--color-azul-escuro) 0%, #174275 100%); color: #fff; padding: 1.75rem 2rem; display: flex; align-items: center; gap: 1.25rem;">
+              <div class="calculator-header-icon" style="background: var(--color-vermelho); color: #fff; width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(204, 27, 39, 0.35);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 10.7 2 10.8 2 11v5c0 .6.4 1 1 1h2"></path>
+                  <circle cx="7" cy="17" r="2"></circle>
+                  <circle cx="17" cy="17" r="2"></circle>
+                </svg>
+              </div>
+              <div>
+                <h3 class="calculator-title" style="margin: 0; font-size: 1.35rem; font-weight: 800; color: #fff;">Simulador de Serviços por Veículo</h3>
+                <p class="calculator-subtitle" style="margin: 0.25rem 0 0; font-size: 0.9rem; color: #e2e8f0; opacity: 0.95;">Escolha seu veículo e os serviços desejados para uma estimativa imediata em Petrolina.</p>
+              </div>
+            </div>
+
+            <div style="padding: 1.75rem 2rem;">
+              <!-- 1. IDENTIFICAÇÃO DO VEÍCULO (API FIPE INTEGRADA) -->
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                  <span style="display: inline-block; width: 8px; height: 8px; background: var(--color-vermelho); border-radius: 50%;"></span>
+                  <strong style="color: var(--color-azul-escuro); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px;">1. Selecione o seu Veículo (API FIPE)</strong>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                  <div>
+                    <label class="calc-label">Montadora / Marca:</label>
+                    <select id="calc-car-brand" class="form-select" style="width: 100%; height: 42px; border-radius: 8px;">
+                      <option value="23" data-name="Chevrolet" selected>Chevrolet</option>
+                      <option value="21" data-name="Fiat">Fiat</option>
+                      <option value="59" data-name="Volkswagen">Volkswagen</option>
+                      <option value="56" data-name="Toyota">Toyota</option>
+                      <option value="26" data-name="Hyundai">Hyundai</option>
+                      <option value="25" data-name="Honda">Honda</option>
+                      <option value="29" data-name="Jeep">Jeep</option>
+                      <option value="48" data-name="Renault">Renault</option>
+                      <option value="22" data-name="Ford">Ford</option>
+                      <option value="43" data-name="Nissan">Nissan</option>
+                      <option value="13" data-name="Citroën">Citroën</option>
+                      <option value="44" data-name="Peugeot">Peugeot</option>
+                      <option value="161" data-name="Caoa Chery">Caoa Chery</option>
+                      <option value="41" data-name="Mitsubishi">Mitsubishi</option>
+                      <option value="7" data-name="BMW">BMW</option>
+                      <option value="39" data-name="Mercedes-Benz">Mercedes-Benz</option>
+                      <option value="238" data-name="BYD">BYD</option>
+                      <option value="240" data-name="GWM">GWM</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="calc-label">Modelo:</label>
+                    <select id="calc-car-model" class="form-select" style="width: 100%; height: 42px; border-radius: 8px;">
+                      <option value="Onix" selected>Onix</option>
+                      <option value="Onix Plus">Onix Plus</option>
+                      <option value="Tracker">Tracker</option>
+                      <option value="Prisma">Prisma</option>
+                      <option value="Spin">Spin</option>
+                      <option value="S10">S10</option>
+                      <option value="Cruze">Cruze</option>
+                      <option value="Celta">Celta</option>
+                      <option value="Corsa">Corsa</option>
+                      <option value="Montana">Montana</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="calc-label">Ano:</label>
+                    <select id="calc-car-year" class="form-select" style="width: 100%; height: 42px; border-radius: 8px;">
+                      <option value="2026">2026</option>
+                      <option value="2025">2025</option>
+                      <option value="2024">2024</option>
+                      <option value="2023">2023</option>
+                      <option value="2022" selected>2022</option>
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                      <option value="2017">2017</option>
+                      <option value="2016">2016</option>
+                      <option value="2015">2015</option>
+                      <option value="2014">2014</option>
+                      <option value="2013">2013</option>
+                      <option value="2012">2012</option>
+                      <option value="2010">2010</option>
+                      <option value="2008">2008</option>
+                      <option value="2005">2005</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="calc-label">Placa (Opcional):</label>
+                    <input type="text" id="calc-car-plate" class="form-control" placeholder="Ex: ABC1D23" maxlength="8" style="height: 42px; border-radius: 8px; text-transform: uppercase;">
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. SERVIÇOS DESEJADOS -->
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="display: inline-block; width: 8px; height: 8px; background: var(--color-azul-medio); border-radius: 50%;"></span>
+                  <strong style="color: var(--color-azul-escuro); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px;">2. Serviços e Itens Desejados</strong>
+                </div>
+              </div>
+
+              <!-- Lista de Linhas da Calculadora -->
+              <div class="calc-rows-container" id="calc-rows-list">
+                
+                <!-- Linha 1 -->
+                <div class="calc-row" data-row-id="row-1">
+                  <div class="calc-col-service">
+                    <label class="calc-label">Serviço #1:</label>
+                    <select class="calc-select form-select" data-field="serviceId">
+                      <option value="srv-1" data-price="180" selected>Troca de Óleo e Filtros (R$ 180,00)</option>
+                      <option value="srv-2" data-price="220">Revisão Preventiva (30 Itens) (R$ 220,00)</option>
+                      <option value="srv-3" data-price="160">Manutenção de Freios e Pastilhas (R$ 160,00)</option>
+                      <option value="srv-4" data-price="120">Alinhamento 3D e Balanceamento (R$ 120,00)</option>
+                      <option value="srv-5" data-price="130">Diagnóstico por Scanner (R$ 130,00)</option>
+                      <option value="srv-6" data-price="150">Higienização e Carga de Ar (R$ 150,00)</option>
+                      <option value="srv-7" data-price="200">Suspensão e Amortecedores (R$ 200,00)</option>
+                      <option value="srv-8" data-price="140">Arrefecimento e Radiador (R$ 140,00)</option>
+                      <option value="srv-9" data-price="90">Teste e Instalação de Bateria (R$ 90,00)</option>
+                      <option value="srv-10" data-price="280">Troca de Correia Dentada (R$ 280,00)</option>
+                    </select>
+                  </div>
+                  <div class="calc-col-area">
+                    <label class="calc-label">Qtd:</label>
+                    <input type="number" min="1" max="10" value="1" class="form-control" data-field="qty" style="height: 40px; text-align: center;">
+                  </div>
+                  <div class="calc-col-subtotal" style="text-align: right;">
+                    <label class="calc-label">Subtotal Ref.:</label>
+                    <div class="calc-subtotal-val" style="font-size: 1.05rem; font-weight: 700; color: var(--color-azul-escuro);">R$ 180,00</div>
+                  </div>
+                  <div class="calc-col-action" style="text-align: center;">
+                    <button type="button" class="btn-remove-row" title="Remover serviço" style="background: none; border: none; color: #94a3b8; cursor: pointer; padding: 8px;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Linha 2 -->
+                <div class="calc-row" data-row-id="row-2">
+                  <div class="calc-col-service">
+                    <label class="calc-label">Serviço #2:</label>
+                    <select class="calc-select form-select" data-field="serviceId">
+                      <option value="srv-1" data-price="180">Troca de Óleo e Filtros (R$ 180,00)</option>
+                      <option value="srv-2" data-price="220">Revisão Preventiva (30 Itens) (R$ 220,00)</option>
+                      <option value="srv-3" data-price="160" selected>Manutenção de Freios e Pastilhas (R$ 160,00)</option>
+                      <option value="srv-4" data-price="120">Alinhamento 3D e Balanceamento (R$ 120,00)</option>
+                      <option value="srv-5" data-price="130">Diagnóstico por Scanner (R$ 130,00)</option>
+                      <option value="srv-6" data-price="150">Higienização e Carga de Ar (R$ 150,00)</option>
+                      <option value="srv-7" data-price="200">Suspensão e Amortecedores (R$ 200,00)</option>
+                      <option value="srv-8" data-price="140">Arrefecimento e Radiador (R$ 140,00)</option>
+                      <option value="srv-9" data-price="90">Teste e Instalação de Bateria (R$ 90,00)</option>
+                      <option value="srv-10" data-price="280">Troca de Correia Dentada (R$ 280,00)</option>
+                    </select>
+                  </div>
+                  <div class="calc-col-area">
+                    <label class="calc-label">Qtd:</label>
+                    <input type="number" min="1" max="10" value="1" class="form-control" data-field="qty" style="height: 40px; text-align: center;">
+                  </div>
+                  <div class="calc-col-subtotal" style="text-align: right;">
+                    <label class="calc-label">Subtotal Ref.:</label>
+                    <div class="calc-subtotal-val" style="font-size: 1.05rem; font-weight: 700; color: var(--color-azul-escuro);">R$ 160,00</div>
+                  </div>
+                  <div class="calc-col-action" style="text-align: center;">
+                    <button type="button" class="btn-remove-row" title="Remover serviço" style="background: none; border: none; color: #94a3b8; cursor: pointer; padding: 8px;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Botão Adicionar Mais Serviços -->
+              <div style="margin: 1rem 0 1.5rem;">
+                <button type="button" id="btn-add-calc-row" class="btn btn-sm" style="background: #e2e8f0; color: #1e293b; font-weight: 600; border-radius: 8px; border: none; padding: 0.6rem 1rem; display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  Adicionar Outro Serviço
+                </button>
+              </div>
+
+              <!-- Totalização -->
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-md); padding: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #e2e8f0;">
+                  <div>
+                    <span style="font-size: 0.8rem; font-weight: 700; color: #64748b; letter-spacing: 0.5px;">ESTIMATIVA DE REFERÊNCIA</span>
+                    <div class="calc-total-display" id="calc-total-display" style="font-size: 2.2rem; font-weight: 800; color: var(--color-azul-escuro); line-height: 1.1;">
+                      R$ 340,00
+                    </div>
+                  </div>
+                  <div style="background: #e0f2fe; color: var(--color-azul-medio); font-weight: 700; font-size: 0.85rem; padding: 0.45rem 1rem; border-radius: 999px;">
+                    ✓ Veículo: <span id="summary-car-text">Chevrolet Onix (2022)</span>
+                  </div>
+                </div>
+
+                <div style="margin-bottom: 1.25rem;">
+                  <label for="calc-client-name" style="font-size: 0.825rem; font-weight: 600; color: #475569; display: block; margin-bottom: 0.35rem;">Seu Nome (opcional):</label>
+                  <input type="text" id="calc-client-name" class="form-control" placeholder="Ex: Rodrigo Alencar" style="height: 42px; border-radius: 8px;">
+                </div>
+
+                <div>
+                  <button type="button" id="btn-calc-whatsapp" class="btn btn-lg btn-block" style="background: var(--color-vermelho); color: #fff; font-weight: 700; font-size: 1.1rem; height: 54px; border-radius: 10px; border: none; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.6rem; cursor: pointer; box-shadow: 0 4px 14px rgba(204, 27, 39, 0.35);">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.031 2C6.511 2 2.018 6.49 2.018 12.01c0 1.83.493 3.55 1.353 5.04L2 22l5.12-1.34c1.44.79 3.09 1.23 4.91 1.23 5.52 0 10.01-4.49 10.01-10.01 0-5.52-4.49-10.01-10.01-10.01zm0 18.28c-1.57 0-3.04-.42-4.32-1.16l-.31-.18-3.21.84.86-3.13-.2-.32a8.23 8.23 0 0 1-1.27-4.48c0-4.57 3.72-8.28 8.28-8.28 4.56 0 8.28 3.71 8.28 8.28 0 4.56-3.72 8.28-8.28 8.28zm4.54-6.2c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.41.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.31 3.8 2.53 1.09 2.53.73 2.99.69.45-.04 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+                    </svg>
+                    Confirmar Orçamento no WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         7. SEÇÃO DEPOIMENTOS DE CLIENTES
+         ==================================================================== -->
+    <section class="section" id="depoimentos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" style="background: rgba(16, 50, 92, 0.1); color: var(--color-azul-escuro);">Avaliações de Clientes</span>
+          <h2 class="section-title" style="color: var(--color-azul-escuro);">O que diz quem confia seu carro na DASA</h2>
+          <p class="section-subtitle">
+            A satisfação dos motoristas e famílias de Petrolina e Juazeiro é o nosso maior selo de qualidade.
+          </p>
+        </div>
+
+        <div class="testimonials-grid" id="testimonials-grid">
+          
+          <article class="testimonial-card reveal-on-scroll">
+            <div class="rating-stars" aria-label="Avaliação: 5 de 5 estrelas" style="color: #f59e0b;">
+              ★★★★★
+            </div>
+            <blockquote class="testimonial-text">
+              "Levei meu carro para revisão antes de pegar estrada para o litoral. Atendimento pontual, explicaram tudo o que precisava trocar sem empurrar peças desnecessárias e entregaram no horário combinado. Muito confiável!"
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: var(--color-azul-escuro); color: #fff;">M</div>
+              <div>
+                <div class="author-name">Marcos Vinícius</div>
+                <div class="author-location">Caminho do Sol - Petrolina • Jeep Compass</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal-on-scroll">
+            <div class="rating-stars" aria-label="Avaliação: 5 de 5 estrelas" style="color: #f59e0b;">
+              ★★★★★
+            </div>
+            <blockquote class="testimonial-text">
+              "A luz de injeção acendeu e passei em duas oficinas sem solução. Na DASA passaram o scanner, identificaram o sensor com defeito e resolveram na hora. Preço super justo e equipe muito atenciosa!"
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: var(--color-vermelho); color: #fff;">C</div>
+              <div>
+                <div class="author-name">Camila Duarte</div>
+                <div class="author-location">Bairro Atrás da Banca • Chevrolet Onix</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal-on-scroll">
+            <div class="rating-stars" aria-label="Avaliação: 5 de 5 estrelas" style="color: #f59e0b;">
+              ★★★★★
+            </div>
+            <blockquote class="testimonial-text">
+              "Estrutura de ponta e facilidade para agendar. O carro ficou perfeito, sem puxar nada e rodando macio com o alinhamento 3D. Recomendo de olhos fechados a todos de Petrolina e Juazeiro!"
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: var(--color-azul-medio); color: #fff;">R</div>
+              <div>
+                <div class="author-name">Rodrigo Alencar</div>
+                <div class="author-location">Centro - Petrolina • Toyota Corolla</div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         8. SEÇÃO AGENDAMENTO DE VISITA TÉCNICA (COM CALENDÁRIO, HORA E DERIVADOS)
+         ESTRUTURA IDÊNTICA AO PROJETO DO PEDREIRO
+         ==================================================================== -->
+    <section class="section section-alt" id="agendamento">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" style="background: rgba(204, 27, 39, 0.1); color: var(--color-vermelho);">Atendimento Presencial</span>
+          <h2 class="section-title" style="color: var(--color-azul-escuro);">Agende uma Visita Técnica / Check-up</h2>
+          <p class="section-subtitle">
+            Deseja que nossa equipe avalie pessoalmente o seu veículo na oficina? Escolha a data no calendário, o melhor horário e seus dados:
+          </p>
+        </div>
+
+        <div style="max-width: 680px; margin: 0 auto;" class="card reveal-on-scroll">
+          <form id="appointment-form">
+            <!-- Nome e Telefone -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+              <div class="form-group">
+                <label for="app-name" class="form-label">Seu Nome *</label>
+                <input type="text" id="app-name" class="form-control" placeholder="Ex: Rodrigo Alencar" required>
+              </div>
+              <div class="form-group">
+                <label for="app-phone" class="form-label">Telefone / WhatsApp *</label>
+                <input type="tel" id="app-phone" class="form-control" placeholder="(87) 9 9999-9999" required>
+              </div>
+            </div>
+
+            <!-- Dados do Veículo -->
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+              <span style="font-size: 0.825rem; font-weight: 700; color: var(--color-azul-escuro); text-transform: uppercase; display: block; margin-bottom: 0.75rem;">Dados do Veículo:</span>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem;">
+                <div class="form-group" style="margin: 0;">
+                  <label for="app-car-brand" class="form-label" style="font-size: 0.8rem;">Marca:</label>
+                  <select id="app-car-brand" class="form-select">
+                    <option value="Chevrolet" selected>Chevrolet</option>
+                    <option value="Fiat">Fiat</option>
+                    <option value="Volkswagen">Volkswagen</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Hyundai">Hyundai</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Jeep">Jeep</option>
+                    <option value="Renault">Renault</option>
+                    <option value="Ford">Ford</option>
+                    <option value="Nissan">Nissan</option>
+                    <option value="Outra Marca">Outra Marca</option>
+                  </select>
+                </div>
+                <div class="form-group" style="margin: 0;">
+                  <label for="app-car-model" class="form-label" style="font-size: 0.8rem;">Modelo:</label>
+                  <input type="text" id="app-car-model" class="form-control" placeholder="Ex: Onix 1.0" value="Onix">
+                </div>
+                <div class="form-group" style="margin: 0;">
+                  <label for="app-car-year" class="form-label" style="font-size: 0.8rem;">Ano:</label>
+                  <input type="text" id="app-car-year" class="form-control" placeholder="Ex: 2022" value="2022">
+                </div>
+              </div>
+            </div>
+
+            <!-- Serviço Principal -->
+            <div class="form-group">
+              <label for="app-service" class="form-label">Serviço Principal de Interesse</label>
+              <select id="app-service" class="form-select">
+                <option value="Revisão Preventiva Geral (Check-up 30 Itens)">Revisão Preventiva Geral (Check-up 30 Itens)</option>
+                <option value="Troca de Óleo e Filtros">Troca de Óleo e Filtros</option>
+                <option value="Manutenção de Freios e Pastilhas">Manutenção de Freios e Pastilhas</option>
+                <option value="Alinhamento 3D e Balanceamento">Alinhamento 3D e Balanceamento</option>
+                <option value="Diagnóstico por Scanner (Injeção Eletrônica)">Diagnóstico por Scanner (Injeção Eletrônica)</option>
+                <option value="Higienização e Carga de Ar-Condicionado">Higienização e Carga de Ar-Condicionado</option>
+                <option value="Suspensão, Amortecedores e Buchas">Suspensão, Amortecedores e Buchas</option>
+                <option value="Arrefecimento e Radiador">Arrefecimento e Radiador</option>
+                <option value="Troca de Correia Dentada">Troca de Correia Dentada</option>
+                <option value="Outro Serviço ou Compra de Peças">Outro Serviço em Geral</option>
+              </select>
+            </div>
+
+            <!-- Data Sugerida (Calendário) e Período/Horário -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+              <div class="form-group">
+                <label for="app-date" class="form-label">Data Sugerida (Calendário) *</label>
+                <input type="date" id="app-date" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="app-period" class="form-label">Melhor Horário / Período *</label>
+                <select id="app-period" class="form-select">
+                  <option value="Manhã (07:30 às 11:30)">Manhã (07:30 às 11:30)</option>
+                  <option value="Tarde (13:30 às 17:30)">Tarde (13:30 às 17:30)</option>
+                  <option value="Sábado de manhã (07:30 às 12:00)">Sábado de manhã (07:30 às 12:00)</option>
+                  <option value="Primeiro horário da manhã (07:30)">Primeiro horário da manhã (07:30)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Bairro / Endereço -->
+            <div class="form-group">
+              <label for="app-address" class="form-label">Bairro / Cidade do Cliente</label>
+              <input type="text" id="app-address" class="form-control" placeholder="Ex: Caminho do Sol, Petrolina">
+            </div>
+
+            <!-- Observações / Sintomas -->
+            <div class="form-group">
+              <label for="app-notes" class="form-label">Observações adicionais ou sintomas do veículo (opcional)</label>
+              <textarea id="app-notes" class="form-control" rows="3" placeholder="Ex: Luz da injeção acesa no painel, pedal de freio trepidando, barulho ao esterçar..."></textarea>
+            </div>
+
+            <!-- Botão Enviar WhatsApp -->
+            <button type="submit" class="btn btn-whatsapp btn-block btn-lg" style="height: 52px; font-weight: 700; font-size: 1.05rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 2C6.511 2 2.018 6.49 2.018 12.01c0 1.83.493 3.55 1.353 5.04L2 22l5.12-1.34c1.44.79 3.09 1.23 4.91 1.23 5.52 0 10.01-4.49 10.01-10.01 0-5.52-4.49-10.01-10.01-10.01zm0 18.28c-1.57 0-3.04-.42-4.32-1.16l-.31-.18-3.21.84.86-3.13-.2-.32a8.23 8.23 0 0 1-1.27-4.48c0-4.57 3.72-8.28 8.28-8.28 4.56 0 8.28 3.71 8.28 8.28 0 4.56-3.72 8.28-8.28 8.28z"/>
+              </svg>
+              Confirmar Agendamento de Visita no WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         9. CONTATO & LOCALIZAÇÃO OFICIAL
+         ==================================================================== -->
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" style="background: rgba(16, 50, 92, 0.1); color: var(--color-azul-escuro);">Localização & Contato</span>
+          <h2 class="section-title" style="color: var(--color-azul-escuro);">Venha nos Visitar em Petrolina - PE</h2>
+          <p class="section-subtitle">
+            Fácil acesso no Caminho do Sol. Estrutura ampla para recepção, diagnóstico e manutenção do seu veículo.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Cartão de Informações de Contato -->
+          <div class="contact-info-card">
+            <h3 style="font-size: 1.3rem; color: var(--color-azul-escuro); margin-bottom: 0.5rem; font-weight: 800;">DASA Centro Automotivo</h3>
+            <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 1.5rem;">
+              Auto Peças e Serviços Mecânicos com garantia e agilidade em Petrolina.
+            </p>
+
+            <div class="info-items-list">
+              <div class="info-item">
+                <div class="info-icon" style="background-color: var(--color-whatsapp-light); color: var(--color-whatsapp);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.031 2C6.511 2 2.018 6.49 2.018 12.01c0 1.83.493 3.55 1.353 5.04L2 22l5.12-1.34c1.44.79 3.09 1.23 4.91 1.23 5.52 0 10.01-4.49 10.01-10.01 0-5.52-4.49-10.01-10.01-10.01zm0 18.28c-1.57 0-3.04-.42-4.32-1.16l-.31-.18-3.21.84.86-3.13-.2-.32a8.23 8.23 0 0 1-1.27-4.48c0-4.57 3.72-8.28 8.28-8.28 4.56 0 8.28 3.71 8.28 8.28 0 4.56-3.72 8.28-8.28 8.28z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="info-title">WhatsApp / Orçamentos</div>
+                  <div class="info-val">
+                    <a href="https://api.whatsapp.com/send?phone=558738623648&text=Ol%C3%A1%2C%20DASA!%20Gostaria%20de%20um%20or%C3%A7amento." 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       style="color: var(--color-whatsapp); font-weight: 700;">
+                      (87) 3862-3648
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon" style="background-color: rgba(225, 48, 108, 0.12); color: #e1306c;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </div>
+                <div>
+                  <div class="info-title">Instagram Oficial</div>
+                  <div class="info-val">
+                    <a href="https://www.instagram.com/dasacentroautomotivo/" target="_blank" rel="noopener noreferrer" style="color: #e1306c; font-weight: 700;">
+                      @dasacentroautomotivo
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon" style="background: rgba(16, 50, 92, 0.1); color: var(--color-azul-escuro);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <div class="info-title">Endereço Completo</div>
+                  <div class="info-val">
+                    Rua Miguel Santos, 356 - Cidade Jardim - Caminho do Sol, Petrolina - PE, 56330-620
+                  </div>
+                  <div style="margin-top: 0.4rem;">
+                    <a href="https://www.google.com.br/maps/place/Dasa+Centro+Automotivo+-+Auto+Pe%C3%A7as+e+Servi%C3%A7os,+Petrolina,+Pernambuco/@-9.3814963,-40.5034818,19z/data=!4m6!3m5!1s0x7737079e9e9619b:0xa8cd7bf26769a444!8m2!3d-9.3815255!4d-40.5033337!16s%2Fg%2F11f2wr9r36!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; font-weight: 700; color: var(--color-azul-medio);">
+                      Abrir no Google Maps →
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon" style="background: rgba(204, 27, 39, 0.1); color: var(--color-vermelho);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="info-title">Horário de Funcionamento</div>
+                  <div class="info-val">Segunda a Sexta: 07:30 às 18:00<br>Sábado: 07:30 às 12:00</div>
+                </div>
+              </div>
+            </div>
+
+            <a href="https://api.whatsapp.com/send?phone=558738623648&text=Ol%C3%A1%2C%20DASA!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20pe%C3%A7as%20e%20servi%C3%A7os." 
+               class="btn btn-whatsapp btn-block js-whatsapp-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 2C6.511 2 2.018 6.49 2.018 12.01c0 1.83.493 3.55 1.353 5.04L2 22l5.12-1.34c1.44.79 3.09 1.23 4.91 1.23 5.52 0 10.01-4.49 10.01-10.01 0-5.52-4.49-10.01-10.01-10.01zm0 18.28c-1.57 0-3.04-.42-4.32-1.16l-.31-.18-3.21.84.86-3.13-.2-.32a8.23 8.23 0 0 1-1.27-4.48c0-4.57 3.72-8.28 8.28-8.28 4.56 0 8.28 3.71 8.28 8.28 0 4.56-3.72 8.28-8.28 8.28zm4.54-6.2c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.41.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.31 3.8 2.53 1.09 2.53.73 2.99.69.45-.04 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+              </svg>
+              Falar no WhatsApp (87) 3862-3648
+            </a>
+          </div>
+
+          <!-- Mapa Integrado -->
+          <div class="card" style="padding: 0; overflow: hidden; border-radius: var(--radius-lg); border: 1px solid var(--color-border); display: flex; flex-direction: column;">
+            <div style="padding: 1.5rem 1.5rem 1rem;">
+              <h3 style="font-size: 1.15rem; color: var(--color-azul-escuro); margin: 0 0 0.25rem; font-weight: 800;">Localização no Google Maps</h3>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 0;">
+                Código Plus: <strong>JF9W+9M Caminho do Sol, Petrolina - PE</strong>
+              </p>
+            </div>
+            
+            <div style="flex: 1; min-height: 320px; width: 100%; position: relative;">
+              <iframe 
+                src="https://maps.google.com/maps?q=-9.3815255,-40.5033337&hl=pt-BR&z=17&output=embed" 
+                width="100%" 
+                height="100%" 
+                style="border:0; min-height: 320px;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade" 
+                title="Mapa DASA Centro Automotivo Petrolina">
+              </iframe>
+            </div>
+
+            <div style="padding: 1rem 1.5rem; background: #f8fafc; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="font-size: 0.825rem; color: #64748b;">Rua Miguel Santos, 356</span>
+              <a href="https://www.google.com.br/maps/place/Dasa+Centro+Automotivo+-+Auto+Pe%C3%A7as+e+Servi%C3%A7os,+Petrolina,+Pernambuco/@-9.3814963,-40.5034818,19z/data=!4m6!3m5!1s0x7737079e9e9619b:0xa8cd7bf26769a444!8m2!3d-9.3815255!4d-40.5033337!16s%2Fg%2F11f2wr9r36!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-sm" 
+                 style="background: var(--color-azul-escuro); color: #fff; font-size: 0.8rem; font-weight: 700;">
+                Traçar Rota no GPS 📍
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       10. BOTÃO FLUTUANTE DE WHATSAPP
+       ==================================================================== -->
+  <a href="https://api.whatsapp.com/send?phone=558738623648&text=Ol%C3%A1%2C%20DASA%20Centro%20Automotivo!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20meu%20carro." 
+     class="whatsapp-float js-whatsapp-link" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Falar com a DASA Centro Automotivo pelo WhatsApp">
+    <div class="whatsapp-float-radar"></div>
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.031 2C6.511 2 2.018 6.49 2.018 12.01c0 1.83.493 3.55 1.353 5.04L2 22l5.12-1.34c1.44.79 3.09 1.23 4.91 1.23 5.52 0 10.01-4.49 10.01-10.01 0-5.52-4.49-10.01-10.01-10.01zm0 18.28c-1.57 0-3.04-.42-4.32-1.16l-.31-.18-3.21.84.86-3.13-.2-.32a8.23 8.23 0 0 1-1.27-4.48c0-4.57 3.72-8.28 8.28-8.28 4.56 0 8.28 3.71 8.28 8.28 0 4.56-3.72 8.28-8.28 8.28zm4.54-6.2c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.41.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.31 3.8 2.53 1.09 2.53.73 2.99.69.45-.04 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+    </svg>
+  </a>
+
+  <!-- ====================================================================
+       11. RODAPÉ (FOOTER)
+       ==================================================================== -->
+  <footer class="site-footer" style="background: var(--color-azul-escuro); color: #fff;">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <img src="assets/img/logo-dasa.png" alt="DASA Logo" style="height: 42px; width: auto; background: #fff; padding: 4px 8px; border-radius: 8px;">
+            <div>
+              <div class="footer-brand-name" style="color: #fff; font-size: 1.2rem; font-weight: 800;">DASA</div>
+              <span style="font-size: 0.75rem; color: #93c5fd; text-transform: uppercase; font-weight: 600;">Centro Automotivo</span>
+            </div>
+          </div>
+          <p class="footer-desc" style="color: #cbd5e1;">
+            Auto Peças e Serviços mecânicos especializados com alta precisão e tecnologia no Vale do São Francisco.
+          </p>
+          <div style="margin-top: 1rem;">
+            <a href="https://www.instagram.com/dasacentroautomotivo/" target="_blank" rel="noopener noreferrer" style="color: #f43f5e; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              @dasacentroautomotivo
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading" style="color: #fff;">Navegação Rápida</h4>
+          <div class="footer-links">
+            <a href="#inicio" class="footer-link" style="color: #cbd5e1;">Início</a>
+            <a href="#servicos" class="footer-link" style="color: #cbd5e1;">Serviços & Peças</a>
+            <a href="#obras" class="footer-link" style="color: #cbd5e1;">Antes & Depois</a>
+            <a href="#diferenciais" class="footer-link" style="color: #cbd5e1;">Diferenciais</a>
+            <a href="#calculadora" class="footer-link" style="color: #cbd5e1;">Simular por Veículo</a>
+            <a href="#depoimentos" class="footer-link" style="color: #cbd5e1;">Avaliações</a>
+            <a href="#agendamento" class="footer-link" style="color: #cbd5e1;">Agendar Visita</a>
+            <a href="#contato" class="footer-link" style="color: #cbd5e1;">Localização</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading" style="color: #fff;">Atendimento & Endereço</h4>
+          <div class="footer-links">
+            <span class="footer-link" style="color: #cbd5e1;">Rua Miguel Santos, 356 - Caminho do Sol, Petrolina - PE</span>
+            <span class="footer-link" style="color: #cbd5e1;">Seg a Sex: 07:30 às 18:00 | Sáb: 07:30 às 12:00</span>
+            <a href="https://api.whatsapp.com/send?phone=558738623648&text=Ol%C3%A1%2C%20DASA!" 
+               class="footer-link js-whatsapp-link" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               style="color: #4ade80; font-weight: 700;">
+              WhatsApp: (87) 3862-3648
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom" style="border-top-color: rgba(255,255,255,0.15); color: #94a3b8;">
+        <div>
+          © 2026 DASA Centro Automotivo. Todos os direitos reservados.
+        </div>
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+          <a href="admin.html" class="footer-admin-link" style="color: #cbd5e1;">🔒 Painel da Oficina</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       SCRIPTS ROBUSTOS
+       ==================================================================== -->
+  <script>
+    const POPULAR_CAR_MODELS = {
+      '23': ['Onix', 'Onix Plus', 'Tracker', 'Prisma', 'Spin', 'S10', 'Cruze', 'Celta', 'Corsa', 'Montana', 'Cobalt'],
+      '21': ['Strada', 'Mobi', 'Argo', 'Toro', 'Cronos', 'Pulse', 'Fastback', 'Palio', 'Uno', 'Fiorino', 'Siena'],
+      '59': ['Polo', 'T-Cross', 'Nivus', 'Gol', 'Virtus', 'Saveiro', 'Taos', 'Voyage', 'Fox', 'Amarok', 'Jetta'],
+      '56': ['Corolla', 'Corolla Cross', 'Hilux', 'Yaris Hatch', 'Yaris Sedan', 'SW4', 'Etios', 'RAV4'],
+      '26': ['HB20', 'HB20S', 'Creta', 'Tucson', 'ix35', 'Santa Fe', 'i30'],
+      '25': ['Civic', 'HR-V', 'Fit', 'City', 'WR-V', 'CR-V'],
+      '29': ['Renegade', 'Compass', 'Commander', 'Grand Cherokee'],
+      '48': ['Kwid', 'Sandero', 'Logan', 'Duster', 'Oroch', 'Captur', 'Kardian', 'Megane'],
+      '22': ['Ka', 'Ka Sedan', 'EcoSport', 'Ranger', 'Fiesta', 'Focus', 'Territory', 'Fusion'],
+      '43': ['Kicks', 'Versa', 'Sentra', 'Frontier', 'March', 'Tiida'],
+      '13': ['C3', 'C3 Aircross', 'C4 Cactus', 'Aircross', 'Berlingo'],
+      '44': ['208', '2008', '3008', '207', '308'],
+      '161': ['Tiggo 5X', 'Tiggo 7 Pro', 'Tiggo 8', 'Arrizo 6', 'iCar'],
+      '41': ['L200 Triton', 'ASX', 'Eclipse Cross', 'Pajero Dakar', 'Outlander'],
+      '7': ['320i', 'X1', 'X3', '330i', '118i', 'X5'],
+      '39': ['C180', 'C200', 'A200', 'GLA 200', 'CLA 200'],
+      '238': ['Dolphin', 'Seal', 'Song Plus', 'Yuan Plus', 'Dolphin Mini', 'King'],
+      '240': ['Haval H6', 'Ora 03', 'Tank 300']
+    };
+
+    const ALL_SERVICES = [
+      { id: 'srv-1', name: 'Troca de Óleo e Filtros', price: 180 },
+      { id: 'srv-2', name: 'Revisão Preventiva (30 Itens)', price: 220 },
+      { id: 'srv-3', name: 'Manutenção de Freios e Pastilhas', price: 160 },
+      { id: 'srv-4', name: 'Alinhamento 3D e Balanceamento', price: 120 },
+      { id: 'srv-5', name: 'Diagnóstico por Scanner (Injeção)', price: 130 },
+      { id: 'srv-6', name: 'Higienização e Carga de Ar', price: 150 },
+      { id: 'srv-7', name: 'Suspensão, Amortecedores e Buchas', price: 200 },
+      { id: 'srv-8', name: 'Sistema de Arrefecimento e Radiador', price: 140 },
+      { id: 'srv-9', name: 'Teste e Instalação de Bateria', price: 90 },
+      { id: 'srv-10', name: 'Troca de Correia Dentada', price: 280 }
+    ];
+
+    
+    function initScrollReveal() {
+      const elements = document.querySelectorAll('.reveal-on-scroll');
+      elements.forEach(el => el.classList.add('is-revealed'));
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      initScrollReveal();
+      initBeforeAfterSliders();
+      initGalleryFilters();
+      initCalculatorEngine();
+      initAppointmentForm();
+      initMobileNavigation();
+    });
+
+    // CONTROLES DESLIZANTES ANTES & DEPOIS
+    function initBeforeAfterSliders() {
+      const containers = document.querySelectorAll('.before-after-container');
+      containers.forEach(function(comp) {
+        const slider = comp.querySelector('.ba-slider');
+        const beforeWrapper = comp.querySelector('.ba-before');
+        const handle = comp.querySelector('.ba-handle');
+
+        if (!slider || !beforeWrapper || !handle) return;
+
+        function updatePosition(val) {
+          beforeWrapper.style.webkitClipPath = 'polygon(0 0, ' + val + '% 0, ' + val + '% 100%, 0 100%)';
+          beforeWrapper.style.clipPath = 'polygon(0 0, ' + val + '% 0, ' + val + '% 100%, 0 100%)';
+          handle.style.left = val + '%';
+        }
+
+        slider.addEventListener('input', function(e) {
+          updatePosition(e.target.value);
+        });
+
+        // Estado inicial 50%
+        updatePosition(50);
+
+        // Toggle mobile rápido
+        const card = comp.closest('.project-card');
+        const toggleBtn = card ? card.querySelector('.btn-toggle-view') : null;
+        if (toggleBtn) {
+          let isShowingAfter = true;
+          toggleBtn.addEventListener('click', function() {
+            isShowingAfter = !isShowingAfter;
+            if (isShowingAfter) {
+              updatePosition(15);
+              slider.value = 15;
+              toggleBtn.innerHTML = 'Exibindo: <strong>Depois</strong> (Toque p/ Antes)';
+            } else {
+              updatePosition(85);
+              slider.value = 85;
+              toggleBtn.innerHTML = 'Exibindo: <strong>Antes</strong> (Toque p/ Depois)';
+            }
+          });
+        }
+      });
+    }
+
+    // FILTRO DE CATEGORIAS DA GALERIA
+    function initGalleryFilters() {
+      const filterBtns = document.querySelectorAll('.js-gallery-filter');
+      const cards = document.querySelectorAll('.project-card');
+
+      filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+
+          const category = btn.getAttribute('data-category');
+          cards.forEach(function(card) {
+            const cardCat = card.getAttribute('data-category');
+            if (category === 'Todos' || cardCat === category) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
+    // CALCULADORA AUTOMOTIVA & SELETOR FIPE
+    function initCalculatorEngine() {
+      const brandSelect = document.getElementById('calc-car-brand');
+      const modelSelect = document.getElementById('calc-car-model');
+      const yearSelect = document.getElementById('calc-car-year');
+      const plateInput = document.getElementById('calc-car-plate');
+      const summaryText = document.getElementById('summary-car-text');
+      const totalDisplay = document.getElementById('calc-total-display');
+      const rowsContainer = document.getElementById('calc-rows-list');
+      const addRowBtn = document.getElementById('btn-add-calc-row');
+      const sendWaBtn = document.getElementById('btn-calc-whatsapp');
+
+      function updateSummaryCar() {
+        const brandOpt = brandSelect.options[brandSelect.selectedIndex];
+        const brandName = brandOpt ? (brandOpt.getAttribute('data-name') || brandOpt.text) : 'Chevrolet';
+        const modelName = modelSelect.value || 'Onix';
+        const year = yearSelect.value || '2022';
+        if (summaryText) {
+          summaryText.textContent = brandName + ' ' + modelName + ' (' + year + ')';
+        }
+      }
+
+      if (brandSelect && modelSelect) {
+        brandSelect.addEventListener('change', async function() {
+          const brandCode = brandSelect.value;
+          updateSummaryCar();
+
+          let models = POPULAR_CAR_MODELS[brandCode] || ['Modelo Passeio / Hatch', 'Sedan / SUV', 'Picape / Utilitário'];
+          
+          try {
+            modelSelect.innerHTML = '<option>Carregando modelos FIPE...</option>';
+            const res = await fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/' + brandCode + '/modelos');
+            if (res.ok) {
+              const data = await res.json();
+              if (data && data.modelos && data.modelos.length > 0) {
+                const fipeNames = data.modelos.map(function(m) { return m.nome; });
+                const popularInFipe = models.filter(function(m) { return fipeNames.some(function(f) { return f.toLowerCase().includes(m.toLowerCase()); }); });
+                models = Array.from(new Set(popularInFipe.concat(fipeNames.slice(0, 40))));
+              }
+            }
+          } catch(err) {
+            console.log('FIPE fallback offline ativo');
+          }
+
+          modelSelect.innerHTML = models.map(function(m, idx) {
+            return '<option value="' + m + '" ' + (idx === 0 ? 'selected' : '') + '>' + m + '</option>';
+          }).join('');
+
+          updateSummaryCar();
+        });
+
+        modelSelect.addEventListener('change', updateSummaryCar);
+      }
+
+      if (yearSelect) yearSelect.addEventListener('change', updateSummaryCar);
+
+      function calculateTotals() {
+        let total = 0;
+        const rows = rowsContainer.querySelectorAll('.calc-row');
+        rows.forEach(function(row) {
+          const select = row.querySelector('.calc-select');
+          const qtyInput = row.querySelector('[data-field="qty"]');
+          const subtotalEl = row.querySelector('.calc-subtotal-val');
+          
+          const opt = select.options[select.selectedIndex];
+          const price = parseFloat(opt.getAttribute('data-price')) || 0;
+          const qty = parseInt(qtyInput.value) || 1;
+          const subtotal = price * qty;
+
+          total += subtotal;
+          if (subtotalEl) {
+            subtotalEl.textContent = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
+          }
+        });
+
+        if (totalDisplay) {
+          totalDisplay.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+        }
+      }
+
+      if (addRowBtn) {
+        addRowBtn.addEventListener('click', function() {
+          const newRowId = 'row-' + Date.now();
+          const optionsHtml = ALL_SERVICES.map(function(s, idx) {
+            return '<option value="' + s.id + '" data-price="' + s.price + '" ' + (idx === 3 ? 'selected' : '') + '>' + s.name + ' (R$ ' + s.price.toFixed(2).replace('.', ',') + ')</option>';
+          }).join('');
+
+          const rowHtml = '<div class="calc-row" data-row-id="' + newRowId + '">' +
+            '<div class="calc-col-service">' +
+              '<label class="calc-label">Serviço Adicional:</label>' +
+              '<select class="calc-select form-select" data-field="serviceId">' + optionsHtml + '</select>' +
+            '</div>' +
+            '<div class="calc-col-area">' +
+              '<label class="calc-label">Qtd:</label>' +
+              '<input type="number" min="1" max="10" value="1" class="form-control" data-field="qty" style="height: 40px; text-align: center;">' +
+            '</div>' +
+            '<div class="calc-col-subtotal" style="text-align: right;">' +
+              '<label class="calc-label">Subtotal Ref.:</label>' +
+              '<div class="calc-subtotal-val" style="font-size: 1.05rem; font-weight: 700; color: var(--color-azul-escuro);">R$ 120,00</div>' +
+            '</div>' +
+            '<div class="calc-col-action" style="text-align: center;">' +
+              '<button type="button" class="btn-remove-row" title="Remover serviço" style="background: none; border: none; color: #94a3b8; cursor: pointer; padding: 8px;">' +
+                '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
+                  '<polyline points="3 6 5 6 21 6"></polyline>' +
+                  '<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>' +
+                '</svg>' +
+              '</button>' +
+            '</div>' +
+          '</div>';
+
+          rowsContainer.insertAdjacentHTML('beforeend', rowHtml);
+          calculateTotals();
+        });
+      }
+
+      rowsContainer.addEventListener('change', function(e) {
+        if (e.target.matches('.calc-select') || e.target.matches('[data-field="qty"]')) {
+          calculateTotals();
+        }
+      });
+
+      rowsContainer.addEventListener('click', function(e) {
+        const removeBtn = e.target.closest('.btn-remove-row');
+        if (removeBtn) {
+          const row = removeBtn.closest('.calc-row');
+          if (rowsContainer.querySelectorAll('.calc-row').length > 1) {
+            row.remove();
+            calculateTotals();
+          } else {
+            alert('Mantenha pelo menos um serviço na simulação.');
+          }
+        }
+      });
+
+      if (sendWaBtn) {
+        sendWaBtn.addEventListener('click', function() {
+          const brandOpt = brandSelect.options[brandSelect.selectedIndex];
+          const brandName = brandOpt ? (brandOpt.getAttribute('data-name') || brandOpt.text) : 'Chevrolet';
+          const modelName = modelSelect.value || 'Onix';
+          const year = yearSelect.value || '2022';
+          const plate = plateInput.value ? plateInput.value.toUpperCase() : 'Não informada';
+          const clientName = document.getElementById('calc-client-name')?.value || 'Cliente DASA';
+
+          const rows = rowsContainer.querySelectorAll('.calc-row');
+          let servicesText = '';
+          let total = 0;
+
+          rows.forEach(function(row, idx) {
+            const select = row.querySelector('.calc-select');
+            const qtyInput = row.querySelector('[data-field="qty"]');
+            const opt = select.options[select.selectedIndex];
+            const price = parseFloat(opt.getAttribute('data-price')) || 0;
+            const qty = parseInt(qtyInput.value) || 1;
+            const subtotal = price * qty;
+            total += subtotal;
+
+            const serviceName = opt.text.split('(')[0].trim();
+            servicesText += (idx + 1) + '. *' + serviceName + '* (' + qty + 'x) - R$ ' + subtotal.toFixed(2).replace('.', ',') + '\n';
+          });
+
+          const msg = 'Olá, DASA Centro Automotivo! Fiz uma simulação de orçamento pelo site:\n\n' +
+            '🚗 *Veículo:* ' + brandName + ' ' + modelName + ' (' + year + ')\n' +
+            '🏷️ *Placa:* ' + plate + '\n\n' +
+            '🔧 *Serviços Selecionados:*\n' + servicesText + '\n' +
+            '💰 *Total Estimado de Referência:* R$ ' + total.toFixed(2).replace('.', ',') + '\n\n' +
+            '👤 *Cliente:* ' + clientName + '\n\n' +
+            'Gostaria de confirmar a disponibilidade e agendar esse serviço!';
+
+          const waUrl = 'https://api.whatsapp.com/send?phone=558738623648&text=' + encodeURIComponent(msg);
+          window.open(waUrl, '_blank');
+        });
+      }
+
+      document.addEventListener('click', function(e) {
+        const simBtn = e.target.closest('.js-simulate-service-btn');
+        if (simBtn) {
+          const sId = simBtn.getAttribute('data-service-id');
+          const calcEl = document.getElementById('calculadora');
+          if (calcEl) {
+            calcEl.scrollIntoView({ behavior: 'smooth' });
+            const firstSelect = rowsContainer.querySelector('.calc-select');
+            if (firstSelect) {
+              firstSelect.value = sId;
+              calculateTotals();
+            }
+          }
+        }
+      });
+    }
+
+    // FORMULÁRIO DE AGENDAMENTO DE VISITA TÉCNICA (CALENDÁRIO, HORA E DERIVADOS)
+    function initAppointmentForm() {
+      const form = document.getElementById('appointment-form');
+      if (!form) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('app-name')?.value || '';
+        const phone = document.getElementById('app-phone')?.value || '';
+        const brand = document.getElementById('app-car-brand')?.value || '';
+        const model = document.getElementById('app-car-model')?.value || '';
+        const year = document.getElementById('app-car-year')?.value || '';
+        const service = document.getElementById('app-service')?.value || '';
+        const date = document.getElementById('app-date')?.value || '';
+        const period = document.getElementById('app-period')?.value || '';
+        const address = document.getElementById('app-address')?.value || '';
+        const notes = document.getElementById('app-notes')?.value || '';
+
+        // Formatação amigável da data
+        let formattedDate = date;
+        if (date && date.includes('-')) {
+          const parts = date.split('-');
+          formattedDate = parts[2] + '/' + parts[1] + '/' + parts[0];
+        }
+
+        const text = 'Olá, equipe da DASA Centro Automotivo! Gostaria de *agendar uma visita técnica / check-up* na oficina:\n\n' +
+          '🚗 *Veículo:* ' + brand + ' ' + model + ' (' + year + ')\n' +
+          '🔧 *Serviço de Interesse:* ' + service + '\n' +
+          '📅 *Data Sugerida:* ' + (formattedDate || 'A combinar') + '\n' +
+          '⏰ *Melhor Horário:* ' + period + '\n' +
+          (address ? '📍 *Bairro / Local:* ' + address + '\n' : '') +
+          '👤 *Nome do Cliente:* ' + name + '\n' +
+          '📞 *WhatsApp:* ' + phone + '\n' +
+          (notes ? '📝 *Sintomas / Observações:* ' + notes + '\n\n' : '\n') +
+          'Poderiam confirmar a reserva do elevador e horário?';
+
+        const url = 'https://api.whatsapp.com/send?phone=558738623648&text=' + encodeURIComponent(text);
+        window.open(url, '_blank');
+      });
+    }
+
+    // MENU MOBILE
+    function initMobileNavigation() {
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const menu = document.getElementById('main-nav');
+      const backdrop = document.getElementById('nav-backdrop');
+
+      if (!toggle || !menu) return;
+
+      function closeMenu() {
+        toggle.classList.remove('is-active');
+        menu.classList.remove('is-open');
+        if (backdrop) backdrop.classList.remove('is-visible');
+        document.body.classList.remove('no-scroll');
+      }
+
+      function openMenu() {
+        toggle.classList.add('is-active');
+        menu.classList.add('is-open');
+        if (backdrop) backdrop.classList.add('is-visible');
+        document.body.classList.add('no-scroll');
+      }
+
+      toggle.addEventListener('click', function() {
+        if (menu.classList.contains('is-open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+      menu.querySelectorAll('.nav-link, .nav-cta-btn').forEach(function(l) {
+        l.addEventListener('click', closeMenu);
+      });
+    }
+  </script>
+</body>
+</html>

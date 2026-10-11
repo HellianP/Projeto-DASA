@@ -1,0 +1,67 @@
+﻿/**
+ * Variáveis de Design & Paleta de Cores - DASA Centro Automotivo
+ * Baseada estritamente nas especificações oficiais
+ */
+:root {
+  /* Cores Oficiais Solicitadas DASA */
+  --color-azul-escuro: #10325c;
+  --color-vermelho: #cc1b27;
+  --color-branco: #ffffff;
+  --color-azul-medio: #0056b3;
+  --color-cinza: #6c757d;
+
+  /* Mapeamento Semântico para o Sistema */
+  --color-primary: #10325c;        /* Azul escuro institucional */
+  --color-primary-dark: #0a213e;   /* Azul profundo para contrastes e sombras */
+  --color-secondary: #0056b3;      /* Azul médio para destaques de apoio */
+  
+  --color-accent: #cc1b27;         /* Vermelho DASA / CTA principal */
+  --color-accent-hover: #b0141f;   /* Vermelho escuro no hover */
+  --color-accent-light: #fee2e2;   /* Vermelho suave para badges e fundos de ícones */
+  
+  --color-white: #ffffff;
+  --color-bg-light: #f8fafc;       /* Fundo suave da página */
+  --color-bg-card: #ffffff;        /* Fundo de cards */
+  --color-bg-card-subtle: #f1f5f9; /* Fundo secundário sutil */
+  
+  --color-text-main: #334155;      /* Texto de leitura */
+  --color-text-muted: #6c757d;     /* Cinza oficial de legendas */
+  --color-text-dark: #10325c;      /* Títulos em azul escuro */
+  --color-text-inverse: #ffffff;
+  
+  --color-whatsapp: #16a34a;       /* Verde WhatsApp oficial */
+  --color-whatsapp-hover: #15803d;
+  --color-whatsapp-light: #dcfce7;
+  --color-instagram: #e1306c;      /* Rosa/Magenta Instagram */
+
+  --color-border: #e2e8f0;
+  --color-border-focus: #cc1b27;
+
+  /* Tipografia */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Raios de Borda */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Sombras */
+  --shadow-xs: 0 1px 2px rgba(16, 50, 92, 0.05);
+  --shadow-sm: 0 2px 4px rgba(16, 50, 92, 0.08);
+  --shadow-md: 0 4px 14px rgba(16, 50, 92, 0.10);
+  --shadow-lg: 0 12px 30px rgba(16, 50, 92, 0.14);
+  --shadow-xl: 0 20px 42px rgba(16, 50, 92, 0.18);
+
+  /* Transições */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Espaçamentos e Container */
+  --container-max-width: 1200px;
+  --container-padding: 1.25rem;
+  --header-height: 82px;
+}

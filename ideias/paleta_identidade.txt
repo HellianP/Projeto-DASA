@@ -1,0 +1,18 @@
+﻿# PALETA OFICIAL DE CORES - DASA CENTRO AUTOMOTIVO
+# Auto Peças e Serviços Mecânicos em Petrolina - PE
+
+:root {
+  --color-azul-escuro: #10325c;
+  --color-vermelho: #cc1b27;
+  --color-branco: #ffffff;
+  --color-azul-medio: #0056b3;
+  --color-cinza: #6c757d;
+}
+
+Significados e Aplicações:
+- Azul Escuro (#10325c): Confiança técnica, credibilidade automotiva, cabeçalhos e autoridade institucional.
+- Vermelho (#cc1b27): Dinamismo, esportividade, call-to-actions principais (botões e destaques).
+- Azul Médio (#0056b3): Apoio, links secundários e badges de garantia.
+- Branco (#ffffff): Fundo limpo, clareza e contraste.
+- Cinza (#6c757d): Textos secundários, bordas discretas e acabamentos mecânicos.
+- Verde WhatsApp (#16a34a): Conversão direta para orçamentos e agendamentos.
