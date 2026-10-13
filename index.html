@@ -449,43 +449,248 @@
     }
 
     @media (max-width: 768px) {
-      /* Hero Section: Centralização Completa */
+      /* ====================================================================
+         1. TOPO DA PÁGINA (HEADER, LOGO, INSTAGRAM, WHATSAPP E MENU)
+         Elimina qualquer overflow horizontal e transforma ações em botões compactos
+         ==================================================================== */
+      :root {
+        --header-height: 64px;
+        --container-padding: 1rem;
+      }
+
+      .site-header {
+        height: 64px !important;
+        position: sticky !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        background-color: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border-bottom: 1px solid var(--color-border) !important;
+        z-index: 1000 !important;
+      }
+
+      .header-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        height: 100% !important;
+        padding-left: 0.85rem !important;
+        padding-right: 0.85rem !important;
+        gap: 0.5rem !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+      }
+
+      .brand-logo {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.45rem !important;
+        min-width: 0 !important;
+        flex-shrink: 1 !important;
+        text-decoration: none !important;
+      }
+
+      .brand-logo-img {
+        height: 38px !important;
+        width: auto !important;
+        max-width: 88px !important;
+        object-fit: contain !important;
+        flex-shrink: 0 !important;
+      }
+
+      .brand-text {
+        display: flex !important;
+        flex-direction: column !important;
+        line-height: 1.1 !important;
+        min-width: 0 !important;
+        flex-shrink: 1 !important;
+      }
+
+      .brand-name {
+        font-size: 1.05rem !important;
+        font-weight: 800 !important;
+        color: var(--color-azul-escuro) !important;
+        letter-spacing: -0.02em !important;
+        white-space: nowrap !important;
+      }
+
+      .brand-tagline {
+        font-size: 0.62rem !important;
+        font-weight: 700 !important;
+        color: var(--color-vermelho) !important;
+        letter-spacing: 0.3px !important;
+        text-transform: uppercase !important;
+        white-space: nowrap !important;
+      }
+
+      .header-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.4rem !important;
+        flex-shrink: 0 !important;
+      }
+
+      /* Ocultar texto dos botões no topo para não estourar a tela no mobile */
+      .header-btn-text {
+        display: none !important;
+      }
+
+      .header-instagram-btn {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 6px rgba(220, 39, 67, 0.25) !important;
+      }
+
+      .header-instagram-btn svg {
+        width: 18px !important;
+        height: 18px !important;
+      }
+
+      .header-wa-btn {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        background-color: var(--color-whatsapp) !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 6px rgba(22, 163, 74, 0.25) !important;
+      }
+
+      .header-wa-btn svg {
+        width: 18px !important;
+        height: 18px !important;
+      }
+
+      .mobile-toggle {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        padding: 0.45rem !important;
+        border-radius: 8px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        background: #f1f5f9 !important;
+        border: 1px solid var(--color-border) !important;
+      }
+
+      /* Drawer do Menu Mobile alinhado à altura de 64px */
+      .main-nav {
+        top: 64px !important;
+        max-height: calc(100vh - 64px) !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 1.25rem 1rem 2rem !important;
+        background: #ffffff !important;
+      }
+
+      .main-nav .nav-link {
+        font-size: 1rem !important;
+        padding: 0.65rem 0 !important;
+      }
+
+      /* ====================================================================
+         2. TIPOGRAFIA GERAL E CABEÇALHOS DE SEÇÃO
+         ==================================================================== */
+      h1 { font-size: 1.85rem !important; }
+      h2 { font-size: 1.5rem !important; }
+      h3 { font-size: 1.2rem !important; }
+
+      .section {
+        padding: 3rem 0 !important;
+      }
+
+      .section-header {
+        margin: 0 auto 2rem auto !important;
+        max-width: 100% !important;
+        padding: 0 0.5rem !important;
+      }
+
+      .section-tag {
+        font-size: 0.75rem !important;
+        padding: 0.3rem 0.75rem !important;
+        margin-bottom: 0.65rem !important;
+      }
+
+      .section-title {
+        font-size: clamp(1.35rem, 4.4vw, 1.65rem) !important;
+        line-height: 1.25 !important;
+        margin-bottom: 0.65rem !important;
+      }
+
+      .section-subtitle {
+        font-size: 0.875rem !important;
+        line-height: 1.5 !important;
+        max-width: 100% !important;
+      }
+
+      /* ====================================================================
+         3. HERO SECTION
+         ==================================================================== */
       .hero-section {
-        padding: 3rem 0 3.5rem;
-        text-align: center;
+        padding: 2.75rem 0 3rem !important;
+        text-align: center !important;
       }
+
       .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        align-items: center;
-        justify-items: center;
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        align-items: center !important;
+        justify-items: center !important;
       }
+
       .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        margin: 0 auto;
-        width: 100%;
-        max-width: 100%;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
       }
+
       .hero-tag {
         align-self: center !important;
-        margin: 0 auto 1.25rem auto !important;
-        text-align: center;
+        margin: 0 auto 1.15rem auto !important;
+        text-align: center !important;
+        font-size: 0.75rem !important;
+        padding: 0.3rem 0.75rem !important;
       }
+
       .hero-title {
         text-align: center !important;
         margin-left: auto !important;
         margin-right: auto !important;
-        font-size: clamp(1.85rem, 5.5vw, 2.35rem) !important;
-        line-height: 1.2;
+        font-size: clamp(1.55rem, 5vw, 1.95rem) !important;
+        line-height: 1.22 !important;
+        margin-bottom: 1rem !important;
       }
+
       .hero-subtitle {
         text-align: center !important;
-        margin: 0 auto 1.75rem auto !important;
+        margin: 0 auto 1.5rem auto !important;
         max-width: 100% !important;
+        font-size: 0.925rem !important;
+        line-height: 1.55 !important;
       }
+
       .hero-buttons {
         display: flex !important;
         flex-direction: column !important;
@@ -495,133 +700,261 @@
         gap: 0.75rem !important;
         margin: 0 auto 1.5rem auto !important;
       }
+
       .hero-buttons .btn {
         width: 100% !important;
         max-width: 380px !important;
         margin: 0 auto !important;
+        min-height: 48px !important;
+        font-size: 0.9375rem !important;
+        padding: 0.75rem 1.25rem !important;
       }
+
       .hero-visual {
         width: 100% !important;
         max-width: 440px !important;
         margin: 0 auto !important;
       }
+
       .hero-main-img {
-        height: 250px !important;
+        height: 220px !important;
+        object-fit: cover !important;
       }
 
-      /* Barra de Confiança e Diferenciais */
+      /* ====================================================================
+         4. FAIXA DE CONFIANÇA (TRUST STRIP)
+         ==================================================================== */
       .trust-strip-section {
-        padding: 1.25rem 0;
+        padding: 1.25rem 0 !important;
       }
+
       .trust-strip-grid {
         grid-template-columns: 1fr !important;
         gap: 0.75rem !important;
         width: 100% !important;
       }
+
       .trust-strip-card {
-        background: #ffffff;
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-sm);
-        padding: 0.85rem 1rem;
-        box-shadow: 0 1px 3px rgba(16, 50, 92, 0.04);
-        width: 100%;
-        box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        gap: 0.85rem;
-      }
-      .trust-strip-info {
-        text-align: left;
+        background: #ffffff !important;
+        border: 1px solid var(--color-border) !important;
+        border-radius: var(--radius-sm) !important;
+        padding: 0.85rem 1rem !important;
+        box-shadow: 0 1px 3px rgba(16, 50, 92, 0.04) !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.85rem !important;
       }
 
-      /* Grid de Serviços */
+      .trust-strip-info {
+        text-align: left !important;
+      }
+
+      .trust-strip-title {
+        font-size: 0.875rem !important;
+      }
+
+      .trust-strip-desc {
+        font-size: 0.75rem !important;
+      }
+
+      /* ====================================================================
+         5. SERVIÇOS & CARDS
+         ==================================================================== */
       .services-grid {
         grid-template-columns: 1fr !important;
         gap: 1.25rem !important;
         width: 100% !important;
       }
+
       .service-card {
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 auto !important;
         box-sizing: border-box !important;
       }
+
+      .service-img-wrap {
+        height: 175px !important;
+      }
+
+      .service-category-badge {
+        font-size: 0.68rem !important;
+        padding: 0.25rem 0.65rem !important;
+      }
+
+      .service-body {
+        padding: 1.25rem 1rem !important;
+      }
+
+      .service-name {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.35rem !important;
+      }
+
+      .service-desc {
+        font-size: 0.835rem !important;
+        line-height: 1.45 !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .service-price-val {
+        font-size: 1.25rem !important;
+      }
+
       .service-card .btn {
         width: 100% !important;
         text-align: center !important;
         justify-content: center !important;
+        min-height: 44px !important;
+        font-size: 0.875rem !important;
       }
 
-      /* Tabela e Banner de Pagamento */
+      /* ====================================================================
+         6. TABELA DE REFERÊNCIA & PAGAMENTO
+         ==================================================================== */
       .pricing-table-container {
         margin-top: 1.5rem !important;
         border-radius: var(--radius-md) !important;
         width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
       }
+
+      .pricing-table {
+        min-width: 480px !important;
+        font-size: 0.8rem !important;
+      }
+
+      .pricing-table th {
+        padding: 0.75rem 0.65rem !important;
+        font-size: 0.75rem !important;
+      }
+
+      .pricing-table td {
+        padding: 0.75rem 0.65rem !important;
+        font-size: 0.8rem !important;
+      }
+
+      .pricing-table .price-col {
+        font-size: 0.9rem !important;
+      }
+
+      /* Faixa de Montadoras / Pills */
+      .partners-strip {
+        padding: 1.75rem 0 !important;
+      }
+
+      .partners-title {
+        font-size: 0.75rem !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .brands-pills-wrap {
+        gap: 0.5rem 0.75rem !important;
+      }
+
+      .brand-pill {
+        padding: 0.35rem 0.7rem !important;
+        font-size: 0.75rem !important;
+      }
+
+      /* Faixa de Pagamento */
       .payment-banner {
-        padding: 1.5rem 1rem !important;
-        margin: 2rem 0 !important;
+        padding: 1.35rem 1rem !important;
+        margin: 1.75rem 0 !important;
         text-align: center !important;
       }
+
       .payment-grid {
         grid-template-columns: 1fr !important;
         gap: 1.25rem !important;
         text-align: center !important;
       }
 
-      /* Diferenciais Centralizados */
+      .payment-item-title {
+        font-size: 0.95rem !important;
+      }
+
+      .payment-item-desc {
+        font-size: 0.78rem !important;
+      }
+
+      /* ====================================================================
+         7. DIFERENCIAIS & COMO FUNCIONA (PASSOS)
+         ==================================================================== */
       .differentials-grid {
         grid-template-columns: 1fr !important;
         gap: 1rem !important;
         width: 100% !important;
       }
+
       .differential-card {
         text-align: center !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        padding: 1.5rem 1.25rem !important;
+        padding: 1.35rem 1rem !important;
         box-sizing: border-box !important;
         width: 100% !important;
       }
+
       .diff-icon {
-        margin: 0 auto 0.85rem auto !important;
+        width: 42px !important;
+        height: 42px !important;
+        margin: 0 auto 0.65rem auto !important;
       }
+
       .diff-title {
-        text-align: center !important;
-      }
-      .diff-desc {
+        font-size: 1.05rem !important;
         text-align: center !important;
       }
 
-      /* Passos Como Funciona Centralizados */
+      .diff-desc {
+        font-size: 0.825rem !important;
+        text-align: center !important;
+        line-height: 1.45 !important;
+      }
+
       .steps-grid {
         grid-template-columns: 1fr !important;
         gap: 1rem !important;
         width: 100% !important;
       }
+
       .step-card {
         text-align: center !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        padding: 1.5rem 1.25rem !important;
+        padding: 1.35rem 1rem !important;
         box-sizing: border-box !important;
         width: 100% !important;
       }
+
       .step-number {
-        margin: 0 auto 0.85rem auto !important;
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 0.95rem !important;
+        margin: 0 auto 0.65rem auto !important;
       }
+
       .step-title {
-        text-align: center !important;
-      }
-      .step-desc {
+        font-size: 1.05rem !important;
         text-align: center !important;
       }
 
-      /* Calculadora e Simulador Mobile */
+      .step-desc {
+        font-size: 0.825rem !important;
+        text-align: center !important;
+      }
+
+      /* ====================================================================
+         8. CALCULADORA & SIMULADOR FIPE
+         ==================================================================== */
       .calculator-card {
         padding: 0 !important;
         border-radius: var(--radius-md) !important;
@@ -629,137 +962,333 @@
         width: 100% !important;
         box-sizing: border-box !important;
       }
+
       .calculator-header {
         flex-direction: column !important;
         text-align: center !important;
-        padding: 1.35rem 1rem !important;
-        gap: 0.75rem !important;
+        padding: 1.25rem 1rem !important;
+        gap: 0.65rem !important;
       }
+
       .calculator-header-icon {
         margin: 0 auto !important;
+        width: 44px !important;
+        height: 44px !important;
       }
+
+      .calculator-title {
+        font-size: 1.15rem !important;
+      }
+
+      .calculator-subtitle {
+        font-size: 0.8rem !important;
+      }
+
       .calc-body-wrap {
-        padding: 1.25rem 1rem !important;
+        padding: 1.15rem 0.75rem !important;
       }
+
+      .calc-label {
+        font-size: 0.78rem !important;
+        font-weight: 600 !important;
+      }
+
+      .form-control, .form-select {
+        font-size: 0.85rem !important;
+      }
+
       .calc-row {
         display: grid !important;
         grid-template-columns: 80px 1fr 44px !important;
-        gap: 0.75rem !important;
-        padding: 1rem !important;
+        gap: 0.5rem !important;
+        padding: 0.85rem 0.65rem !important;
         align-items: end !important;
         width: 100% !important;
         box-sizing: border-box !important;
+        border-radius: 8px !important;
       }
+
       .calc-col-service {
         grid-column: 1 / -1 !important;
         width: 100% !important;
       }
+
+      .calc-select {
+        font-size: 0.8rem !important;
+      }
+
       .calc-col-area {
         grid-column: 1 / 2 !important;
       }
+
       .calc-col-subtotal {
         grid-column: 2 / 3 !important;
         text-align: center !important;
       }
+
       .calc-col-subtotal .calc-subtotal-val {
         justify-content: center !important;
+        font-size: 0.95rem !important;
       }
+
       .calc-col-action {
         grid-column: 3 / 4 !important;
         text-align: right !important;
         display: flex !important;
         justify-content: flex-end !important;
       }
+
       .calc-summary-header {
         flex-direction: column !important;
         text-align: center !important;
         gap: 0.75rem !important;
         justify-content: center !important;
-      }
-      .calc-total-display {
-        text-align: center !important;
-      }
-      #btn-calc-whatsapp {
-        width: 100% !important;
-        font-size: 1.05rem !important;
-        padding: 0.85rem 1rem !important;
-        height: auto !important;
-        min-height: 52px !important;
+        padding: 1rem !important;
       }
 
-      /* Galeria Antes e Depois */
+      .calc-total-display {
+        text-align: center !important;
+        font-size: 1.6rem !important;
+      }
+
+      #btn-calc-whatsapp {
+        width: 100% !important;
+        font-size: 0.95rem !important;
+        padding: 0.85rem 1rem !important;
+        height: auto !important;
+        min-height: 48px !important;
+      }
+
+      /* ====================================================================
+         9. AVALIAÇÕES GOOGLE (TESTIMONIALS)
+         ==================================================================== */
+      .google-overall-bar {
+        padding: 0.85rem 1rem !important;
+        max-width: 100% !important;
+        margin-bottom: 1.75rem !important;
+        box-sizing: border-box !important;
+      }
+
+      .google-overall-score .score-num {
+        font-size: 1.2rem !important;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+      }
+
+      .testimonial-card {
+        padding: 1.25rem 1rem !important;
+      }
+
+      .testimonial-text {
+        font-size: 0.875rem !important;
+        line-height: 1.5 !important;
+      }
+
+      .author-avatar {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 0.95rem !important;
+      }
+
+      .author-name {
+        font-size: 0.9rem !important;
+      }
+
+      /* ====================================================================
+         10. GALERIA ANTES E DEPOIS (OBRAS)
+         ==================================================================== */
       .projects-grid {
         grid-template-columns: 1fr !important;
-        gap: 1.75rem !important;
+        gap: 1.5rem !important;
         width: 100% !important;
       }
+
       .project-card {
         width: 100% !important;
         margin: 0 auto !important;
         box-sizing: border-box !important;
       }
-      .project-content {
-        padding: 1.25rem !important;
+
+      .project-img-wrap {
+        height: 200px !important;
       }
+
+      .project-content {
+        padding: 1.15rem 1rem !important;
+      }
+
+      .project-title {
+        font-size: 1.05rem !important;
+      }
+
+      .project-desc {
+        font-size: 0.825rem !important;
+      }
+
       .project-footer .btn {
         width: 100% !important;
         text-align: center !important;
         justify-content: center !important;
-      }
-      .gallery-filters {
-        gap: 0.45rem !important;
-        justify-content: center !important;
-      }
-      .filter-btn {
-        padding: 0.4rem 0.8rem !important;
-        font-size: 0.8rem !important;
+        min-height: 44px !important;
+        font-size: 0.875rem !important;
       }
 
-      /* Card de Agendamento */
+      .gallery-filters {
+        gap: 0.4rem !important;
+        justify-content: center !important;
+        margin-bottom: 1.25rem !important;
+      }
+
+      .filter-btn {
+        padding: 0.4rem 0.75rem !important;
+        font-size: 0.78rem !important;
+      }
+
+      /* ====================================================================
+         11. AGENDAMENTO & CONTATO
+         ==================================================================== */
       #agendamento .card {
         padding: 1.25rem 1rem !important;
         width: 100% !important;
         box-sizing: border-box !important;
       }
+
+      .form-group {
+        margin-bottom: 0.85rem !important;
+      }
+
+      .form-label {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.35rem !important;
+      }
+
       #appointment-form .btn {
         width: 100% !important;
         height: auto !important;
-        min-height: 52px !important;
-        font-size: 1rem !important;
+        min-height: 48px !important;
+        font-size: 0.95rem !important;
         padding: 0.85rem 1rem !important;
       }
 
-      /* Contato e Mapa */
       .contact-grid {
         grid-template-columns: 1fr !important;
         gap: 1.5rem !important;
         width: 100% !important;
       }
+
       .contact-info-card {
-        padding: 1.35rem 1rem !important;
+        padding: 1.25rem 1rem !important;
         box-sizing: border-box !important;
       }
 
-      /* Rodapé */
+      .contact-info-item {
+        gap: 0.75rem !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .contact-icon {
+        width: 38px !important;
+        height: 38px !important;
+      }
+
+      .contact-map-wrap iframe {
+        height: 260px !important;
+        min-height: 260px !important;
+      }
+
+      /* ====================================================================
+         12. RODAPÉ (SITE-FOOTER) & BOTÃO WHATSAPP FLUTUANTE
+         ==================================================================== */
       .site-footer {
-        padding: 3rem 0 2rem !important;
+        padding: 2.75rem 0 1.75rem !important;
         text-align: center !important;
       }
+
       .footer-grid {
         grid-template-columns: 1fr !important;
-        gap: 2rem !important;
+        gap: 1.75rem !important;
         text-align: center !important;
       }
+
+      .footer-title {
+        font-size: 1rem !important;
+      }
+
       .footer-desc {
         margin: 0 auto !important;
+        font-size: 0.825rem !important;
       }
+
       .footer-links {
         align-items: center !important;
       }
+
+      .footer-links a {
+        font-size: 0.825rem !important;
+      }
+
       .footer-bottom {
         text-align: center !important;
         flex-direction: column !important;
         gap: 0.75rem !important;
+        font-size: 0.75rem !important;
+      }
+
+      .whatsapp-float {
+        width: 50px !important;
+        height: 50px !important;
+        bottom: 1.25rem !important;
+        right: 1.25rem !important;
+      }
+
+      .whatsapp-float svg {
+        width: 26px !important;
+        height: 26px !important;
+      }
+    }
+
+    /* Ajustes Específicos para Telas Muito Pequenas (<= 360px) */
+    @media (max-width: 360px) {
+      .header-container {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        gap: 0.35rem !important;
+      }
+
+      .brand-logo-img {
+        height: 34px !important;
+      }
+
+      .brand-name {
+        font-size: 0.95rem !important;
+      }
+
+      .brand-tagline {
+        display: none !important;
+      }
+
+      .header-actions {
+        gap: 0.25rem !important;
+      }
+
+      .header-instagram-btn,
+      .header-wa-btn,
+      .mobile-toggle {
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+      }
+
+      .hero-title {
+        font-size: 1.45rem !important;
+      }
+
+      .calc-row {
+        grid-template-columns: 70px 1fr 38px !important;
+        padding: 0.65rem 0.45rem !important;
       }
     }
   </style>
@@ -793,6 +1322,32 @@
           <li><a href="#contato" class="nav-link">Contato</a></li>
         </ul>
         <a href="#agendamento" class="nav-cta-btn">Agendar Visita</a>
+
+        <!-- Links Rápidos Sociais no Menu Gaveta Mobile -->
+        <div class="nav-mobile-socials" style="display: flex; flex-direction: column; gap: 0.5rem; width: 100%; margin-top: 0.75rem;">
+          <a href="https://api.whatsapp.com/send?phone=558738623648&text=Ol%C3%A1%2C%20DASA%20Centro%20Automotivo!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20carro." 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn btn-whatsapp btn-block js-whatsapp-link"
+             style="display: flex; gap: 0.5rem; justify-content: center; align-items: center; font-size: 0.95rem; min-height: 46px; border-radius: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.031 2C6.511 2 2.018 6.49 2.018 12.01c0 1.83.493 3.55 1.353 5.04L2 22l5.12-1.34c1.44.79 3.09 1.23 4.91 1.23 5.52 0 10.01-4.49 10.01-10.01 0-5.52-4.49-10.01-10.01-10.01zm0 18.28c-1.57 0-3.04-.42-4.32-1.16l-.31-.18-3.21.84.86-3.13-.2-.32a8.23 8.23 0 0 1-1.27-4.48c0-4.57 3.72-8.28 8.28-8.28 4.56 0 8.28 3.71 8.28 8.28 0 4.56-3.72 8.28-8.28 8.28z"/>
+            </svg>
+            <span>Falar no WhatsApp</span>
+          </a>
+          <a href="https://www.instagram.com/dasacentroautomotivo/" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="nav-instagram-btn js-instagram-link"
+             style="display: flex; gap: 0.5rem; align-items: center; justify-content: center; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; padding: 0.75rem 1rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <span>Seguir no Instagram</span>
+          </a>
+        </div>
       </nav>
 
       <!-- Ações do Header (Instagram + WhatsApp + Menu Mobile) -->
@@ -802,13 +1357,14 @@
            class="header-instagram-btn js-instagram-link" 
            target="_blank" 
            rel="noopener noreferrer" 
-           aria-label="Instagram da DASA Centro Automotivo">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+           aria-label="Instagram da DASA Centro Automotivo"
+           title="Instagram DASA">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
           </svg>
-          <span class="d-none d-sm-inline">Instagram</span>
+          <span class="header-btn-text">Instagram</span>
         </a>
 
         <!-- Botão WhatsApp Topo -->
@@ -816,11 +1372,12 @@
            class="header-wa-btn js-whatsapp-link" 
            target="_blank" 
            rel="noopener noreferrer" 
-           aria-label="Falar pelo WhatsApp com a DASA">
+           aria-label="Falar pelo WhatsApp com a DASA"
+           title="WhatsApp DASA">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.031 2C6.511 2 2.018 6.49 2.018 12.01c0 1.83.493 3.55 1.353 5.04L2 22l5.12-1.34c1.44.79 3.09 1.23 4.91 1.23 5.52 0 10.01-4.49 10.01-10.01 0-5.52-4.49-10.01-10.01-10.01zm0 18.28c-1.57 0-3.04-.42-4.32-1.16l-.31-.18-3.21.84.86-3.13-.2-.32a8.23 8.23 0 0 1-1.27-4.48c0-4.57 3.72-8.28 8.28-8.28 4.56 0 8.28 3.71 8.28 8.28 0 4.56-3.72 8.28-8.28 8.28z"/>
           </svg>
-          <span>WhatsApp</span>
+          <span class="header-btn-text">WhatsApp</span>
         </a>
 
         <!-- Botão Hamburger Mobile -->

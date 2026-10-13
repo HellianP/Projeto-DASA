@@ -297,10 +297,110 @@
 }
 
 @media (min-width: 1121px) {
-  .main-nav .nav-cta-btn {
-    display: none;
+  .main-nav .nav-cta-btn,
+  .main-nav .nav-mobile-socials {
+    display: none !important;
   }
 }
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  .site-header {
+    height: 64px;
+  }
+
+  .header-container {
+    padding: 0 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .brand-logo {
+    min-width: 0;
+    gap: 0.45rem;
+  }
+
+  .brand-logo-img {
+    height: 38px;
+    max-width: 85px;
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.62rem;
+  }
+
+  .header-actions {
+    gap: 0.4rem;
+  }
+
+  .header-btn-text {
+    display: none;
+  }
+
+  .header-instagram-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    padding: 0;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-wa-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    padding: 0;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-toggle {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  .main-nav {
+    top: 64px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-container {
+    padding: 0 0.5rem;
+    gap: 0.35rem;
+  }
+
+  .brand-tagline {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 0.25rem;
+  }
+
+  .header-instagram-btn,
+  .header-wa-btn,
+  .mobile-toggle {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+  }
+}
+
 
 /* ====================================================================
    BARRA CENTRAL DE DIFERENCIAIS E CONFIANÇA (FULL-WIDTH)
