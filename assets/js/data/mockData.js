@@ -162,42 +162,32 @@ export const INITIAL_PROJECTS = [
 export const INITIAL_TESTIMONIALS = [
   {
     id: 'test-1',
-    author: 'Marcos Vinícius',
-    location: 'Caminho do Sol - Petrolina',
-    car: 'Jeep Compass Longitude',
+    author: 'Nicácio da Cruz Parente',
+    location: 'Local Guide · 14 avaliações',
+    car: 'Cliente Verificado Google',
     rating: 5,
-    text: 'Levei meu carro para revisão antes de pegar estrada para o litoral. Atendimento pontual, explicaram tudo o que precisava trocar sem empurrar peças desnecessárias e entregaram no horário combinado. Muito confiável!',
-    avatar: 'M',
+    text: 'Oficina muito boa. Honestidade em primeiro lugar e os serviços que faz é bem feito.',
+    avatar: 'N',
     featured: true
   },
   {
     id: 'test-2',
-    author: 'Camila Duarte',
-    location: 'Bairro Atrás da Banca - Petrolina',
-    car: 'Chevrolet Onix Turbo',
+    author: 'Samuelvidros Alves',
+    location: '5 avaliações',
+    car: 'Cliente Verificado Google',
     rating: 5,
-    text: 'A luz de injeção acendeu e passei em duas oficinas sem solução. Na DASA passaram o scanner, identificaram o sensor com defeito e resolveram na hora. Preço super justo e equipe muito atenciosa!',
-    avatar: 'C',
+    text: 'Dasa centro automotivo é o melhor da cidade. Pode conferir',
+    avatar: 'S',
     featured: true
   },
   {
     id: 'test-3',
-    author: 'Rodrigo Alencar',
-    location: 'Centro - Petrolina',
-    car: 'Toyota Corolla XEi',
+    author: 'Denise Gurgel',
+    location: 'Local Guide · 48 avaliações · 5 fotos',
+    car: 'Cliente há mais de 7 anos',
     rating: 5,
-    text: 'Estrutura de ponta e muita transparência. O carro ficou perfeito, sem puxar nada e rodando macio com o alinhamento 3D. Recomendo de olhos fechados a todos de Petrolina e Juazeiro!',
-    avatar: 'R',
-    featured: true
-  },
-  {
-    id: 'test-4',
-    author: 'Eduardo Silveira',
-    location: 'Juazeiro - BA',
-    car: 'Fiat Toro Volcano',
-    rating: 5,
-    text: 'Atendimento nota 10. Fizeram a troca de pastilhas e sangria do fluido de freio em menos de 1 hora com preço muito bom. Excelente ter uma mecânica de confiança perto da gente.',
-    avatar: 'E',
+    text: 'Possuo uma Locadora de veículos e meus carros é a DASA CENTRO AUTOMOTIVO quem faz as manutenções e troca de óleos. Sou cliente há mais de 7 anos. RECOMENDO....',
+    avatar: 'D',
     featured: true
   }
 ];

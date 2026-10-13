@@ -17,48 +17,65 @@
   min-height: 48px; /* Mobile touch target */
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
-  transition: all var(--transition-fast);
+  transition: transform var(--transition-fast), 
+              box-shadow var(--transition-normal), 
+              background-color var(--transition-fast), 
+              border-color var(--transition-fast), 
+              color var(--transition-fast);
   text-align: center;
   user-select: none;
   white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
 }
 
 .btn:active {
-  transform: translateY(1px);
+  transform: scale(0.98);
+  transition-duration: 0.08s;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 .btn-primary {
   background-color: var(--color-accent);
   color: var(--color-white);
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.25);
+  box-shadow: var(--shadow-accent);
 }
 
 .btn-primary:hover {
   background-color: var(--color-accent-hover);
   color: var(--color-white);
-  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.35);
+  box-shadow: var(--shadow-accent-hover);
 }
 
 .btn-secondary {
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   color: var(--color-white);
+  box-shadow: 0 4px 12px rgba(16, 50, 92, 0.2);
 }
 
 .btn-secondary:hover {
-  background-color: #0F172A;
+  background-color: var(--color-primary-dark);
   color: var(--color-white);
+  box-shadow: 0 6px 18px rgba(16, 50, 92, 0.28);
 }
 
 .btn-whatsapp {
   background-color: var(--color-whatsapp);
   color: var(--color-white);
-  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+  box-shadow: var(--shadow-whatsapp);
 }
 
 .btn-whatsapp:hover {
   background-color: var(--color-whatsapp-hover);
   color: var(--color-white);
-  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.35);
+  box-shadow: var(--shadow-whatsapp-hover);
 }
 
 .btn-outline {
@@ -71,16 +88,17 @@
   background-color: var(--color-white);
   border-color: var(--color-accent);
   color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-outline-white {
   background-color: transparent;
   color: var(--color-white);
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-outline-white:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.12);
   border-color: var(--color-white);
   color: var(--color-white);
 }
@@ -178,7 +196,7 @@
 .form-select:focus {
   outline: none;
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+  box-shadow: 0 0 0 3px rgba(204, 27, 39, 0.15);
 }
 
 textarea.form-control {
