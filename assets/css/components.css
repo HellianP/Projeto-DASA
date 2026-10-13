@@ -331,9 +331,10 @@ textarea.form-control {
 }
 @media (max-width: 768px) {
   .calc-row {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 80px 1fr 44px;
     gap: 0.75rem;
     padding: 1rem;
+    align-items: end;
   }
   .calc-col-service {
     grid-column: 1 / -1;
@@ -343,10 +344,15 @@ textarea.form-control {
   }
   .calc-col-subtotal {
     grid-column: 2 / 3;
-    text-align: right;
+    text-align: center;
+  }
+  .calc-col-subtotal .calc-subtotal-val {
+    justify-content: center;
   }
   .calc-col-action {
-    grid-column: 1 / -1;
+    grid-column: 3 / 4;
     text-align: right;
+    display: flex;
+    justify-content: flex-end;
   }
 }

@@ -6,8 +6,8 @@
   <title>DASA Centro Automotivo | Auto Peças e Serviços Mecânicos em Petrolina - PE</title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="DASA Centro Automotivo - Peças e serviços mecânicos em Petrolina: troca de óleo, freios, revisão preventiva, alinhamento 3D, injeção eletrônica e suspensão. Simule seu orçamento e agende sua visita!">
-  <meta name="keywords" content="DASA centro automotivo, mecanica petrolina, oficina mecanica petrolina, troca de oleo petrolina, alinhamento 3d petrolina, auto pecas petrolina, revisao preventiva, agendar visita mecanica petrolina">
+  <meta name="description" content="DASA Centro Automotivo - Peças e serviços mecânicos em Petrolina: troca de óleo, freios, revisão preventiva, suspensão, injeção eletrônica e auto peças. Simule seu orçamento e agende sua visita!">
+  <meta name="keywords" content="DASA centro automotivo, mecanica petrolina, oficina mecanica petrolina, troca de oleo petrolina, suspensao petrolina, auto pecas petrolina, revisao preventiva, agendar visita mecanica petrolina">
   <meta name="author" content="DASA Centro Automotivo">
   <meta name="robots" content="index, follow">
 
@@ -148,7 +148,7 @@
     /* Grid e Cards de Serviços com Fotos (Motion Refinado & Sem Conflito de Escala) */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.75rem;
     }
 
@@ -427,6 +427,340 @@
       display: block !important;
       opacity: 1 !important;
       visibility: visible !important;
+    }
+
+    /* ====================================================================
+       OTIMIZAÇÃO MOBILE: CENTRALIZAÇÃO DE DIVS, CARDS E CONTAINERS
+       Garante alinhamento perfeito, zero overflow horizontal e experiência 10/10
+       ==================================================================== */
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max-width);
+      margin-left: auto;
+      margin-right: auto;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      /* Hero Section: Centralização Completa */
+      .hero-section {
+        padding: 3rem 0 3.5rem;
+        text-align: center;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: center;
+        justify-items: center;
+      }
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
+      }
+      .hero-tag {
+        align-self: center !important;
+        margin: 0 auto 1.25rem auto !important;
+        text-align: center;
+      }
+      .hero-title {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        font-size: clamp(1.85rem, 5.5vw, 2.35rem) !important;
+        line-height: 1.2;
+      }
+      .hero-subtitle {
+        text-align: center !important;
+        margin: 0 auto 1.75rem auto !important;
+        max-width: 100% !important;
+      }
+      .hero-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        gap: 0.75rem !important;
+        margin: 0 auto 1.5rem auto !important;
+      }
+      .hero-buttons .btn {
+        width: 100% !important;
+        max-width: 380px !important;
+        margin: 0 auto !important;
+      }
+      .hero-visual {
+        width: 100% !important;
+        max-width: 440px !important;
+        margin: 0 auto !important;
+      }
+      .hero-main-img {
+        height: 250px !important;
+      }
+
+      /* Barra de Confiança e Diferenciais */
+      .trust-strip-section {
+        padding: 1.25rem 0;
+      }
+      .trust-strip-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
+      }
+      .trust-strip-card {
+        background: #ffffff;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        padding: 0.85rem 1rem;
+        box-shadow: 0 1px 3px rgba(16, 50, 92, 0.04);
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+      }
+      .trust-strip-info {
+        text-align: left;
+      }
+
+      /* Grid de Serviços */
+      .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+        width: 100% !important;
+      }
+      .service-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+      }
+      .service-card .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+      }
+
+      /* Tabela e Banner de Pagamento */
+      .pricing-table-container {
+        margin-top: 1.5rem !important;
+        border-radius: var(--radius-md) !important;
+        width: 100% !important;
+      }
+      .payment-banner {
+        padding: 1.5rem 1rem !important;
+        margin: 2rem 0 !important;
+        text-align: center !important;
+      }
+      .payment-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+        text-align: center !important;
+      }
+
+      /* Diferenciais Centralizados */
+      .differentials-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        width: 100% !important;
+      }
+      .differential-card {
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 1.5rem 1.25rem !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+      }
+      .diff-icon {
+        margin: 0 auto 0.85rem auto !important;
+      }
+      .diff-title {
+        text-align: center !important;
+      }
+      .diff-desc {
+        text-align: center !important;
+      }
+
+      /* Passos Como Funciona Centralizados */
+      .steps-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        width: 100% !important;
+      }
+      .step-card {
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 1.5rem 1.25rem !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+      }
+      .step-number {
+        margin: 0 auto 0.85rem auto !important;
+      }
+      .step-title {
+        text-align: center !important;
+      }
+      .step-desc {
+        text-align: center !important;
+      }
+
+      /* Calculadora e Simulador Mobile */
+      .calculator-card {
+        padding: 0 !important;
+        border-radius: var(--radius-md) !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .calculator-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 1.35rem 1rem !important;
+        gap: 0.75rem !important;
+      }
+      .calculator-header-icon {
+        margin: 0 auto !important;
+      }
+      .calc-body-wrap {
+        padding: 1.25rem 1rem !important;
+      }
+      .calc-row {
+        display: grid !important;
+        grid-template-columns: 80px 1fr 44px !important;
+        gap: 0.75rem !important;
+        padding: 1rem !important;
+        align-items: end !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .calc-col-service {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+      }
+      .calc-col-area {
+        grid-column: 1 / 2 !important;
+      }
+      .calc-col-subtotal {
+        grid-column: 2 / 3 !important;
+        text-align: center !important;
+      }
+      .calc-col-subtotal .calc-subtotal-val {
+        justify-content: center !important;
+      }
+      .calc-col-action {
+        grid-column: 3 / 4 !important;
+        text-align: right !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+      }
+      .calc-summary-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 0.75rem !important;
+        justify-content: center !important;
+      }
+      .calc-total-display {
+        text-align: center !important;
+      }
+      #btn-calc-whatsapp {
+        width: 100% !important;
+        font-size: 1.05rem !important;
+        padding: 0.85rem 1rem !important;
+        height: auto !important;
+        min-height: 52px !important;
+      }
+
+      /* Galeria Antes e Depois */
+      .projects-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.75rem !important;
+        width: 100% !important;
+      }
+      .project-card {
+        width: 100% !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+      }
+      .project-content {
+        padding: 1.25rem !important;
+      }
+      .project-footer .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+      }
+      .gallery-filters {
+        gap: 0.45rem !important;
+        justify-content: center !important;
+      }
+      .filter-btn {
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.8rem !important;
+      }
+
+      /* Card de Agendamento */
+      #agendamento .card {
+        padding: 1.25rem 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      #appointment-form .btn {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 52px !important;
+        font-size: 1rem !important;
+        padding: 0.85rem 1rem !important;
+      }
+
+      /* Contato e Mapa */
+      .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+      }
+      .contact-info-card {
+        padding: 1.35rem 1rem !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Rodapé */
+      .site-footer {
+        padding: 3rem 0 2rem !important;
+        text-align: center !important;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        text-align: center !important;
+      }
+      .footer-desc {
+        margin: 0 auto !important;
+      }
+      .footer-links {
+        align-items: center !important;
+      }
+      .footer-bottom {
+        text-align: center !important;
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+      }
     }
   </style>
 </head>
@@ -727,27 +1061,27 @@
             </div>
           </article>
 
-          <!-- Serviço 4: Alinhamento Computadorizado 3D -->
+          <!-- Serviço 4: Limpeza e Equalização de Bicos Injetores -->
           <article class="service-card reveal-on-scroll" data-service-id="srv-4">
             <div class="service-img-wrap">
-              <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=600&q=80" alt="Alinhamento 3D e Balanceamento" class="service-img" loading="lazy">
-              <span class="service-category-badge">Geometria 3D</span>
+              <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=600&q=80" alt="Limpeza de Bicos Injetores" class="service-img" loading="lazy">
+              <span class="service-category-badge">Injeção & Bicos</span>
             </div>
             <div class="service-body">
-              <h3 class="service-name">Alinhamento 3D e Balanceamento</h3>
+              <h3 class="service-name">Limpeza e Teste de Bicos Injetores</h3>
               <p class="service-description">
-                Geometria computadorizada a laser com parâmetros oficiais de fábrica. Elimina vibrações no volante e evita o desgaste irregular prematuro dos pneus.
+                Teste em cuba ultrassônica de vazão, leque e estanqueidade dos bicos para recuperar o consumo econômico e o torque original do motor.
               </p>
               <div class="service-meta-strip">
-                <span>⏱️ Tempo: 50 min</span>
-                <span>✓ Laser de alta precisão</span>
+                <span>⏱️ Tempo: 45 min</span>
+                <span>✓ Cuba ultrassônica</span>
               </div>
               <div class="service-price-tag">
-                <span class="service-price-prefix">Valor fechado</span>
-                <span class="service-price-val">R$ 120,00</span>
-                <span class="service-price-unit">/4 rodas</span>
+                <span class="service-price-prefix">A partir de</span>
+                <span class="service-price-val">R$ 130,00</span>
+                <span class="service-price-unit">/veículo</span>
               </div>
-              <button type="button" class="btn btn-outline btn-sm js-simulate-service-btn" data-service-id="srv-4" data-service-name="Alinhamento 3D e Balanceamento" data-price="120">
+              <button type="button" class="btn btn-outline btn-sm js-simulate-service-btn" data-service-id="srv-4" data-service-name="Limpeza e Teste de Bicos Injetores" data-price="130">
                 Simular no Orçamento →
               </button>
             </div>
@@ -946,13 +1280,6 @@
                 <td class="price-col">R$ 160,00</td>
               </tr>
               <tr>
-                <td><strong>Alinhamento 3D + Balanceamento</strong></td>
-                <td>Laser computadorizado de alta precisão</td>
-                <td>40 a 50 min</td>
-                <td><span class="pricing-badge">30 Dias</span></td>
-                <td class="price-col">R$ 120,00</td>
-              </tr>
-              <tr>
                 <td><strong>Diagnóstico de Injeção por Scanner</strong></td>
                 <td>Varredura de módulos e reset de falhas</td>
                 <td>30 a 45 min</td>
@@ -1048,7 +1375,6 @@
           <button type="button" class="filter-btn js-gallery-filter" data-category="Estética & Faróis">Estética & Faróis</button>
           <button type="button" class="filter-btn js-gallery-filter" data-category="Motor & Injeção">Motor & Injeção</button>
           <button type="button" class="filter-btn js-gallery-filter" data-category="Freios">Freios</button>
-          <button type="button" class="filter-btn js-gallery-filter" data-category="Suspensão">Suspensão</button>
         </div>
 
         <!-- Grid de Antes & Depois Pré-populado e Interativo -->
@@ -1180,48 +1506,6 @@
             </div>
           </article>
 
-          <!-- Projeto 4: Suspensão e Geometria 3D -->
-          <article class="project-card reveal-on-scroll" data-category="Suspensão">
-            <div class="project-comparison-wrapper">
-              <div class="before-after-container" data-id="proj-4">
-                <div class="ba-image-wrapper ba-before">
-                  <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" alt="Suspensão com Folga - Antes" loading="lazy" class="ba-img">
-                  <span class="ba-badge ba-badge-before">Antes</span>
-                </div>
-                <div class="ba-image-wrapper ba-after">
-                  <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80" alt="Suspensão e Alinhamento Novo - Depois" loading="lazy" class="ba-img">
-                  <span class="ba-badge ba-badge-after">Depois</span>
-                </div>
-                <input type="range" min="0" max="100" value="50" class="ba-slider" aria-label="Comparar antes e depois">
-                <div class="ba-handle" style="left: 50%;">
-                  <span class="ba-handle-arrows">⇄</span>
-                </div>
-              </div>
-              <div class="mobile-ba-toggle">
-                <button type="button" class="btn-toggle-view" data-view="after">Ver: <strong>Depois (Concluído)</strong> ⇄</button>
-              </div>
-            </div>
-
-            <div class="project-content">
-              <div class="project-header">
-                <span class="badge" style="background: rgba(0, 86, 179, 0.1); color: var(--color-azul-medio); font-weight: 700;">Suspensão</span>
-                <span class="project-date">Serviço Concluído</span>
-              </div>
-              <h3 class="project-title">Alinhamento 3D e Revisão Completa de Suspensão</h3>
-              <p class="project-description">
-                Troca preventiva de amortecedores e batentes com geometria computadorizada 3D a laser, garantindo estabilidade e condução macia na rodovia sem puxar o volante.
-              </p>
-              <ul class="project-tags">
-                <li><span class="tag-bullet">✓</span> Geometria laser 3D</li>
-                <li><span class="tag-bullet">✓</span> Amortecedores novos</li>
-                <li><span class="tag-bullet">✓</span> Estabilidade total</li>
-              </ul>
-              <div class="project-footer">
-                <a href="#agendamento" class="btn btn-outline btn-sm">Agendar Este Serviço</a>
-              </div>
-            </div>
-          </article>
-
         </div>
       </div>
     </section>
@@ -1250,10 +1534,10 @@
 
           <div class="differential-card reveal-on-scroll">
             <div class="diff-icon" style="background: rgba(204, 27, 39, 0.1); color: var(--color-vermelho);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="22" y1="12" x2="18" y2="12"></line><line x1="6" y1="12" x2="2" y2="12"></line><line x1="12" y1="6" x2="12" y2="2"></line><line x1="12" y1="22" x2="12" y2="18"></line></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
             </div>
-            <h3 class="diff-title">Alinhamento 3D Computadorizado</h3>
-            <p class="diff-desc">Geometria precisa a laser com tolerâncias de fábrica de montadoras nacionais e importadas.</p>
+            <h3 class="diff-title">Peças Originais com Garantia</h3>
+            <p class="diff-desc">Trabalhamos com marcas homologadas pelas montadoras e garantia técnica comprovada em nota fiscal.</p>
           </div>
 
           <div class="differential-card reveal-on-scroll">
@@ -1306,7 +1590,7 @@
               </div>
             </div>
 
-            <div style="padding: 1.75rem 2rem;">
+            <div class="calc-body-wrap" style="padding: 1.75rem 2rem;">
               <!-- 1. IDENTIFICAÇÃO DO VEÍCULO (API FIPE INTEGRADA) -->
               <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
@@ -1405,7 +1689,7 @@
                       <option value="srv-1" data-price="180" selected>Troca de Óleo e Filtros (R$ 180,00)</option>
                       <option value="srv-2" data-price="220">Revisão Preventiva (30 Itens) (R$ 220,00)</option>
                       <option value="srv-3" data-price="160">Manutenção de Freios e Pastilhas (R$ 160,00)</option>
-                      <option value="srv-4" data-price="120">Alinhamento 3D e Balanceamento (R$ 120,00)</option>
+                      <option value="srv-4" data-price="130">Limpeza e Teste de Bicos Injetores (R$ 130,00)</option>
                       <option value="srv-5" data-price="130">Diagnóstico por Scanner (R$ 130,00)</option>
                       <option value="srv-6" data-price="150">Higienização e Carga de Ar (R$ 150,00)</option>
                       <option value="srv-7" data-price="200">Suspensão e Amortecedores (R$ 200,00)</option>
@@ -1440,7 +1724,7 @@
                       <option value="srv-1" data-price="180">Troca de Óleo e Filtros (R$ 180,00)</option>
                       <option value="srv-2" data-price="220">Revisão Preventiva (30 Itens) (R$ 220,00)</option>
                       <option value="srv-3" data-price="160" selected>Manutenção de Freios e Pastilhas (R$ 160,00)</option>
-                      <option value="srv-4" data-price="120">Alinhamento 3D e Balanceamento (R$ 120,00)</option>
+                      <option value="srv-4" data-price="130">Limpeza e Teste de Bicos Injetores (R$ 130,00)</option>
                       <option value="srv-5" data-price="130">Diagnóstico por Scanner (R$ 130,00)</option>
                       <option value="srv-6" data-price="150">Higienização e Carga de Ar (R$ 150,00)</option>
                       <option value="srv-7" data-price="200">Suspensão e Amortecedores (R$ 200,00)</option>
@@ -1482,7 +1766,7 @@
 
               <!-- Totalização -->
               <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-md); padding: 1.5rem;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #e2e8f0;">
+                <div class="calc-summary-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #e2e8f0;">
                   <div>
                     <span style="font-size: 0.8rem; font-weight: 700; color: #64748b; letter-spacing: 0.5px;">ESTIMATIVA DE REFERÊNCIA</span>
                     <div class="calc-total-display" id="calc-total-display" style="font-size: 2.2rem; font-weight: 800; color: var(--color-azul-escuro); line-height: 1.1;">
@@ -1725,7 +2009,7 @@
                 <option value="Revisão Preventiva Geral (Check-up 30 Itens)">Revisão Preventiva Geral (Check-up 30 Itens)</option>
                 <option value="Troca de Óleo e Filtros">Troca de Óleo e Filtros</option>
                 <option value="Manutenção de Freios e Pastilhas">Manutenção de Freios e Pastilhas</option>
-                <option value="Alinhamento 3D e Balanceamento">Alinhamento 3D e Balanceamento</option>
+                <option value="Limpeza e Teste de Bicos Injetores">Limpeza e Teste de Bicos Injetores</option>
                 <option value="Diagnóstico por Scanner (Injeção Eletrônica)">Diagnóstico por Scanner (Injeção Eletrônica)</option>
                 <option value="Higienização e Carga de Ar-Condicionado">Higienização e Carga de Ar-Condicionado</option>
                 <option value="Suspensão, Amortecedores e Buchas">Suspensão, Amortecedores e Buchas</option>
@@ -2034,7 +2318,7 @@
       { id: 'srv-1', name: 'Troca de Óleo e Filtros', price: 180 },
       { id: 'srv-2', name: 'Revisão Preventiva (30 Itens)', price: 220 },
       { id: 'srv-3', name: 'Manutenção de Freios e Pastilhas', price: 160 },
-      { id: 'srv-4', name: 'Alinhamento 3D e Balanceamento', price: 120 },
+      { id: 'srv-4', name: 'Limpeza e Teste de Bicos Injetores', price: 130 },
       { id: 'srv-5', name: 'Diagnóstico por Scanner (Injeção)', price: 130 },
       { id: 'srv-6', name: 'Higienização e Carga de Ar', price: 150 },
       { id: 'srv-7', name: 'Suspensão, Amortecedores e Buchas', price: 200 },

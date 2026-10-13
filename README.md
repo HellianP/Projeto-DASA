@@ -24,7 +24,7 @@ Aplicação web profissional, moderna, responsiva e mobile-first desenvolvida es
 2. **Seleção Inteligente de Veículos (API FIPE)**:
    - Integração com a API de Veículos (Marcas e Modelos) com fallback instantâneo offline para as principais marcas do Brasil (Chevrolet, Fiat, VW, Toyota, Hyundai, Honda, Jeep, Renault, Ford, etc.).
 3. **Simulador de Orçamentos com Veículo**:
-   - O cliente escolhe seu carro e os serviços automotivos desejados (Troca de Óleo, Revisão Preventiva, Freios, Alinhamento 3D, Injeção Eletrônica).
+   - O cliente escolhe seu carro e os serviços automotivos desejados (Troca de Óleo, Revisão Preventiva, Freios, Injeção Eletrônica, Suspensão).
    - Ao clicar no WhatsApp, a mensagem já vai pronta com o modelo do carro, ano e itens selecionados.
 4. **Agendamento de Check-up / Revisão**:
    - Formulário com dados do veículo, data preferida, melhor horário e sintomas/barulhos relatados.

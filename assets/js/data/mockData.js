@@ -39,13 +39,13 @@ export const INITIAL_SERVICES = [
   },
   {
     id: 'srv-4',
-    name: 'Alinhamento 3D e Balanceamento',
-    category: 'Geometria 3D',
-    description: 'Geometria computadorizada a laser com parâmetros oficiais de fábrica. Elimina vibrações no volante e evita desgaste irregular dos pneus.',
-    price: 120.00,
-    unit: '4 rodas',
-    image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=600&q=80',
-    time: '50 min',
+    name: 'Limpeza e Teste de Bicos Injetores',
+    category: 'Injeção & Bicos',
+    description: 'Teste em cuba ultrassônica de vazão, leque e estanqueidade dos bicos para recuperar consumo e torque original do motor.',
+    price: 130.00,
+    unit: 'veículo',
+    image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=600&q=80',
+    time: '45 min',
     featured: true
   },
   {
@@ -146,16 +146,6 @@ export const INITIAL_PROJECTS = [
     afterImage: 'https://images.unsplash.com/photo-1600793575654-910699b5e4d4?auto=format&fit=crop&w=800&q=80',
     tags: ['Pastilhas de cerâmica', 'Fluido DOT 4 novo', 'Zero vibração no pedal'],
     date: '2026-01-28'
-  },
-  {
-    id: 'proj-4',
-    title: 'Alinhamento 3D e Revisão Completa de Suspensão',
-    category: 'Suspensão',
-    description: 'Troca preventiva de amortecedores e batentes com geometria computadorizada 3D a laser, garantindo estabilidade total na pista.',
-    beforeImage: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80',
-    tags: ['Geometria laser 3D', 'Amortecedores novos', 'Estabilidade na rodovia'],
-    date: '2026-01-10'
   }
 ];
 
